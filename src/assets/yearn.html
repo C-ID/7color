@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)http://localhost:3000/SWAP -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="fortmatic-site-verification" content="VX2sV8B5roETAbdU">
+    <link rel="apple-touch-icon" sizes="57x57" href="http://localhost:3000/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="http://localhost:3000/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://localhost:3000/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="http://localhost:3000/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://localhost:3000/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="http://localhost:3000/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="http://localhost:3000/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="http://localhost:3000/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="http://localhost:3000/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="http://localhost:3000/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:3000/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="http://localhost:3000/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:3000/favicon-16x16.png">
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#000000">
+    <meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width, shrink-to-fit=yes">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>yearn</title>
+  <style type="text/css">@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800);</style><style type="text/css">@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900);</style><style type="text/css">* {
+  outline: none !important;
+}
+
+body {
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  margin: 0;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+}
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+</style><style data-jss="" data-meta="MuiCssBaseline">
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+strong, b {
+  font-weight: 700;
+}
+body {
+  color: #212529;
+  margin: 0;
+  font-size: 16px;
+  font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-weight: 300;
+  line-height: 1.43;
+  background-color: #fafafa;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@media print {
+  body {
+    background-color: #fff;
+  }
+}
+body::backdrop {
+  background-color: #fafafa;
+}
+@font-face {
+  font-family: Work Sans Thin;
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: 
+    local('Work Sans Thin'),
+    local('Work Sans Thin'),
+    url(/static/media/WorkSans-VariableFont_wght.b2439691.ttf) format('truetype')
+  ;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF;
+}
+</style><style data-jss="" data-meta="MuiSvgIcon">
+.MuiSvgIcon-root {
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  font-size: 1.5rem;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  flex-shrink: 0;
+  user-select: none;
+}
+.MuiSvgIcon-colorPrimary {
+  color: #2F80ED;
+}
+.MuiSvgIcon-colorSecondary {
+  color: #0b8f92;
+}
+.MuiSvgIcon-colorAction {
+  color: rgba(0, 0, 0, 0.54);
+}
+.MuiSvgIcon-colorError {
+  color: #f44336;
+}
+.MuiSvgIcon-colorDisabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+.MuiSvgIcon-fontSizeInherit {
+  font-size: inherit;
+}
+.MuiSvgIcon-fontSizeSmall {
+  font-size: 1.25rem;
+}
+.MuiSvgIcon-fontSizeLarge {
+  font-size: 2.1875rem;
+}
+</style><style data-jss="" data-meta="MuiTouchRipple">
+.MuiTouchRipple-root {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  overflow: hidden;
+  position: absolute;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.MuiTouchRipple-ripple {
+  opacity: 0;
+  position: absolute;
+}
+.MuiTouchRipple-rippleVisible {
+  opacity: 0.3;
+  animation: MuiTouchRipple-keyframes-enter 550ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1);
+}
+.MuiTouchRipple-ripplePulsate {
+  animation-duration: 200ms;
+}
+.MuiTouchRipple-child {
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 1;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+.MuiTouchRipple-childLeaving {
+  opacity: 0;
+  animation: MuiTouchRipple-keyframes-exit 550ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.MuiTouchRipple-childPulsate {
+  top: 0;
+  left: 0;
+  position: absolute;
+  animation: MuiTouchRipple-keyframes-pulsate 2500ms cubic-bezier(0.4, 0, 0.2, 1) 200ms infinite;
+}
+@-webkit-keyframes MuiTouchRipple-keyframes-enter {
+  0% {
+    opacity: 0.1;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes MuiTouchRipple-keyframes-exit {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes MuiTouchRipple-keyframes-pulsate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.92);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+</style><style data-jss="" data-meta="MuiButtonBase">
+.MuiButtonBase-root {
+  color: inherit;
+  border: 0;
+  cursor: pointer;
+  margin: 0;
+  display: inline-flex;
+  outline: 0;
+  padding: 0;
+  position: relative;
+  align-items: center;
+  user-select: none;
+  border-radius: 0;
+  vertical-align: middle;
+  -moz-appearance: none;
+  justify-content: center;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.MuiButtonBase-root::-moz-focus-inner {
+  border-style: none;
+}
+.MuiButtonBase-root.Mui-disabled {
+  cursor: default;
+  pointer-events: none;
+}
+@media print {
+  .MuiButtonBase-root {
+    -webkit-print-color-adjust: exact;
+  }
+}
+</style><style data-jss="" data-meta="MuiIconButton">
+.MuiIconButton-root {
+  flex: 0 0 auto;
+  color: rgba(0, 0, 0, 0.54);
+  padding: 12px;
+  overflow: visible;
+  font-size: 1.5rem;
+  text-align: center;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 50%;
+}
+.MuiIconButton-root:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+.MuiIconButton-root.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+  background-color: transparent;
+}
+@media (hover: none) {
+  .MuiIconButton-root:hover {
+    background-color: transparent;
+  }
+}
+.MuiIconButton-edgeStart {
+  margin-left: -12px;
+}
+.MuiIconButton-sizeSmall.MuiIconButton-edgeStart {
+  margin-left: -3px;
+}
+.MuiIconButton-edgeEnd {
+  margin-right: -12px;
+}
+.MuiIconButton-sizeSmall.MuiIconButton-edgeEnd {
+  margin-right: -3px;
+}
+.MuiIconButton-colorInherit {
+  color: inherit;
+}
+.MuiIconButton-colorPrimary {
+  color: #2F80ED;
+}
+.MuiIconButton-colorPrimary:hover {
+  background-color: rgba(47, 128, 237, 0.04);
+}
+@media (hover: none) {
+  .MuiIconButton-colorPrimary:hover {
+    background-color: transparent;
+  }
+}
+.MuiIconButton-colorSecondary {
+  color: #0b8f92;
+}
+.MuiIconButton-colorSecondary:hover {
+  background-color: rgba(11, 143, 146, 0.04);
+}
+@media (hover: none) {
+  .MuiIconButton-colorSecondary:hover {
+    background-color: transparent;
+  }
+}
+.MuiIconButton-sizeSmall {
+  padding: 3px;
+  font-size: 1.125rem;
+}
+.MuiIconButton-label {
+  width: 100%;
+  display: flex;
+  align-items: inherit;
+  justify-content: inherit;
+}
+</style><style data-jss="" data-meta="MuiTypography">
+.MuiTypography-root {
+  margin: 0;
+}
+.MuiTypography-body2 {
+  font-size: 16px;
+  font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-weight: 300;
+  line-height: 1.43;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.MuiTypography-body1 {
+  font-size: 16px;
+  font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-weight: 300;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.MuiTypography-caption {
+  font-size: 0.75rem;
+  font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-weight: 400;
+  line-height: 1.66;
+}
+.MuiTypography-button {
+  font-size: 0.875rem;
+  font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-weight: 500;
+  line-height: 1.75;
+  text-transform: uppercase;
+}
+.MuiTypography-h1 {
+  font-size: 48px;
+  font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-weight: 600;
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.MuiTypography-h2 {
+  font-size: 36px;
+  font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-weight: 600;
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.MuiTypography-h3 {
+  font-size: 22px;
+  font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-weight: 600;
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.MuiTypography-h4 {
+  font-size: 16px;
+  font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-weight: 600;
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.MuiTypography-h5 {
+  font-size: 14px;
+  font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-weight: 600;
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.MuiTypography-h6 {
+  font-size: 1.25rem;
+  font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-weight: 500;
+  line-height: 1.6;
+}
+.MuiTypography-subtitle1 {
+  font-size: 1rem;
+  font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-weight: 400;
+  line-height: 1.75;
+}
+.MuiTypography-subtitle2 {
+  font-size: 0.875rem;
+  font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-weight: 500;
+  line-height: 1.57;
+}
+.MuiTypography-overline {
+  font-size: 0.75rem;
+  font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-weight: 400;
+  line-height: 2.66;
+  text-transform: uppercase;
+}
+.MuiTypography-srOnly {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+.MuiTypography-alignLeft {
+  text-align: left;
+}
+.MuiTypography-alignCenter {
+  text-align: center;
+}
+.MuiTypography-alignRight {
+  text-align: right;
+}
+.MuiTypography-alignJustify {
+  text-align: justify;
+}
+.MuiTypography-noWrap {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.MuiTypography-gutterBottom {
+  margin-bottom: 0.35em;
+}
+.MuiTypography-paragraph {
+  margin-bottom: 16px;
+}
+.MuiTypography-colorInherit {
+  color: inherit;
+}
+.MuiTypography-colorPrimary {
+  color: #2F80ED;
+}
+.MuiTypography-colorSecondary {
+  color: #0b8f92;
+}
+.MuiTypography-colorTextPrimary {
+  color: #212529;
+}
+.MuiTypography-colorTextSecondary {
+  color: #212529;
+}
+.MuiTypography-colorError {
+  color: #f44336;
+}
+.MuiTypography-displayInline {
+  display: inline;
+}
+.MuiTypography-displayBlock {
+  display: block;
+}
+</style><style data-jss="" data-meta="MuiInputBase">
+@-webkit-keyframes mui-auto-fill {}
+@-webkit-keyframes mui-auto-fill-cancel {}
+.MuiInputBase-root {
+  color: #212529;
+  cursor: text;
+  display: inline-flex;
+  position: relative;
+  font-size: 16px;
+  box-sizing: border-box;
+  align-items: center;
+  font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-weight: 300;
+  line-height: 1.1876em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.MuiInputBase-root.Mui-disabled {
+  color: rgba(0, 0, 0, 0.38);
+  cursor: default;
+}
+.MuiInputBase-multiline {
+  padding: 6px 0 7px;
+}
+.MuiInputBase-multiline.MuiInputBase-marginDense {
+  padding-top: 3px;
+}
+.MuiInputBase-fullWidth {
+  width: 100%;
+}
+.MuiInputBase-input {
+  font: inherit;
+  color: currentColor;
+  width: 100%;
+  border: 0;
+  height: 1.1876em;
+  margin: 0;
+  display: block;
+  padding: 6px 0 7px;
+  font-size: 16px;
+  min-width: 0;
+  background: none;
+  box-sizing: content-box;
+  font-weight: 600;
+  line-height: 1.2;
+  animation-name: mui-auto-fill-cancel;
+  letter-spacing: inherit;
+  animation-duration: 10ms;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+.MuiInputBase-input::-webkit-input-placeholder {
+  color: currentColor;
+  opacity: 0.42;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.MuiInputBase-input::-moz-placeholder {
+  color: currentColor;
+  opacity: 0.42;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.MuiInputBase-input:-ms-input-placeholder {
+  color: currentColor;
+  opacity: 0.42;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.MuiInputBase-input::-ms-input-placeholder {
+  color: currentColor;
+  opacity: 0.42;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.MuiInputBase-input:focus {
+  outline: 0;
+}
+.MuiInputBase-input:invalid {
+  box-shadow: none;
+}
+.MuiInputBase-input::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+.MuiInputBase-input.Mui-disabled {
+  opacity: 1;
+}
+.MuiInputBase-input:-webkit-autofill {
+  animation-name: mui-auto-fill;
+  animation-duration: 5000s;
+}
+label[data-shrink=false] + .MuiInputBase-formControl .MuiInputBase-input::-webkit-input-placeholder {
+  opacity: 0 !important;
+}
+label[data-shrink=false] + .MuiInputBase-formControl .MuiInputBase-input::-moz-placeholder {
+  opacity: 0 !important;
+}
+label[data-shrink=false] + .MuiInputBase-formControl .MuiInputBase-input:-ms-input-placeholder {
+  opacity: 0 !important;
+}
+label[data-shrink=false] + .MuiInputBase-formControl .MuiInputBase-input::-ms-input-placeholder {
+  opacity: 0 !important;
+}
+label[data-shrink=false] + .MuiInputBase-formControl .MuiInputBase-input:focus::-webkit-input-placeholder {
+  opacity: 0.42;
+}
+label[data-shrink=false] + .MuiInputBase-formControl .MuiInputBase-input:focus::-moz-placeholder {
+  opacity: 0.42;
+}
+label[data-shrink=false] + .MuiInputBase-formControl .MuiInputBase-input:focus:-ms-input-placeholder {
+  opacity: 0.42;
+}
+label[data-shrink=false] + .MuiInputBase-formControl .MuiInputBase-input:focus::-ms-input-placeholder {
+  opacity: 0.42;
+}
+.MuiInputBase-inputMarginDense {
+  padding-top: 3px;
+}
+.MuiInputBase-inputMultiline {
+  height: auto;
+  resize: none;
+  padding: 0;
+}
+.MuiInputBase-inputTypeSearch {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+}
+</style><style data-jss="" data-meta="MuiFormControl">
+.MuiFormControl-root {
+  border: 0;
+  margin: 0;
+  display: inline-flex;
+  padding: 0;
+  position: relative;
+  min-width: 0;
+  flex-direction: column;
+  vertical-align: top;
+}
+.MuiFormControl-marginNormal {
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+.MuiFormControl-marginDense {
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+.MuiFormControl-fullWidth {
+  width: 100%;
+}
+</style><style data-jss="" data-meta="MuiFormLabel">
+.MuiFormLabel-root {
+  color: #212529;
+  padding: 0;
+  font-size: 16px;
+  font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-weight: 300;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.MuiFormLabel-root.Mui-focused {
+  color: #2F80ED;
+}
+.MuiFormLabel-root.Mui-disabled {
+  color: rgba(0, 0, 0, 0.38);
+}
+.MuiFormLabel-root.Mui-error {
+  color: #f44336;
+}
+.MuiFormLabel-colorSecondary.Mui-focused {
+  color: #0b8f92;
+}
+.MuiFormLabel-asterisk.Mui-error {
+  color: #f44336;
+}
+</style><style data-jss="" data-meta="MuiInputLabel">
+.MuiInputLabel-root {
+  display: block;
+  transform-origin: top left;
+}
+.MuiInputLabel-formControl {
+  top: 0;
+  left: 0;
+  position: absolute;
+  transform: translate(0, 24px) scale(1);
+}
+.MuiInputLabel-marginDense {
+  transform: translate(0, 21px) scale(1);
+}
+.MuiInputLabel-shrink {
+  transform: translate(0, 1.5px) scale(0.75);
+  transform-origin: top left;
+}
+.MuiInputLabel-animated {
+  transition: color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+}
+.MuiInputLabel-filled {
+  z-index: 1;
+  transform: translate(12px, 20px) scale(1);
+  pointer-events: none;
+}
+.MuiInputLabel-filled.MuiInputLabel-marginDense {
+  transform: translate(12px, 17px) scale(1);
+}
+.MuiInputLabel-filled.MuiInputLabel-shrink {
+  transform: translate(12px, 10px) scale(0.75);
+}
+.MuiInputLabel-filled.MuiInputLabel-shrink.MuiInputLabel-marginDense {
+  transform: translate(12px, 7px) scale(0.75);
+}
+.MuiInputLabel-outlined {
+  z-index: 1;
+  transform: translate(14px, 20px) scale(1);
+  pointer-events: none;
+}
+.MuiInputLabel-outlined.MuiInputLabel-marginDense {
+  transform: translate(14px, 12px) scale(1);
+}
+.MuiInputLabel-outlined.MuiInputLabel-shrink {
+  transform: translate(14px, -6px) scale(0.75);
+}
+</style><style data-jss="" data-meta="PrivateNotchedOutline">
+.PrivateNotchedOutline-root-37 {
+  top: -5px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0 8px;
+  overflow: hidden;
+  position: absolute;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.PrivateNotchedOutline-legend-38 {
+  padding: 0;
+  text-align: left;
+  transition: width 150ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  line-height: 11px;
+}
+.PrivateNotchedOutline-legendLabelled-39 {
+  width: auto;
+  height: 11px;
+  display: block;
+  padding: 0;
+  font-size: 0.75em;
+  max-width: 0.01px;
+  text-align: left;
+  transition: max-width 50ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  visibility: hidden;
+}
+.PrivateNotchedOutline-legendLabelled-39 > span {
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.PrivateNotchedOutline-legendNotched-40 {
+  max-width: 1000px;
+  transition: max-width 100ms cubic-bezier(0.0, 0, 0.2, 1) 50ms;
+}
+</style><style data-jss="" data-meta="MuiOutlinedInput">
+.MuiOutlinedInput-root {
+  position: relative;
+  border-radius: 50px;
+}
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #212529;
+}
+@media (hover: none) {
+  .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: rgba(0, 0, 0, 0.23);
+  }
+}
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #2F80ED;
+  border-width: 2px;
+}
+.MuiOutlinedInput-root.Mui-error .MuiOutlinedInput-notchedOutline {
+  border-color: #f44336;
+}
+.MuiOutlinedInput-root.Mui-disabled .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(0, 0, 0, 0.26);
+}
+.MuiOutlinedInput-colorSecondary.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #0b8f92;
+}
+.MuiOutlinedInput-adornedStart {
+  padding-left: 14px;
+}
+.MuiOutlinedInput-adornedEnd {
+  padding-right: 14px;
+}
+.MuiOutlinedInput-multiline {
+  padding: 18.5px 14px;
+}
+.MuiOutlinedInput-multiline.MuiOutlinedInput-marginDense {
+  padding-top: 10.5px;
+  padding-bottom: 10.5px;
+}
+.MuiOutlinedInput-notchedOutline {
+  border-color: rgba(0, 0, 0, 0.23);
+}
+.MuiOutlinedInput-input {
+  color: #212529;
+  padding: 14px;
+  border-radius: 50px;
+}
+.MuiOutlinedInput-input:-webkit-autofill {
+  border-radius: inherit;
+}
+.MuiOutlinedInput-input::placeholder {
+  color: #212529;
+}
+.MuiOutlinedInput-inputMarginDense {
+  padding-top: 10.5px;
+  padding-bottom: 10.5px;
+}
+.MuiOutlinedInput-inputMultiline {
+  padding: 0;
+}
+.MuiOutlinedInput-inputAdornedStart {
+  padding-left: 0;
+}
+.MuiOutlinedInput-inputAdornedEnd {
+  padding-right: 0;
+}
+</style><style data-jss="" data-meta="MuiTextField">
+
+</style><style data-jss="" data-meta="Footer">
+.Footer-footer-41 {
+  width: 100%;
+  border: 1px solid rgba(25, 101, 233, 0.5);
+  display: flex;
+  padding: 24px;
+  flex-wrap: wrap;
+  background: #fff;
+  margin-top: 48px;
+  border-bottom: none;
+  border-radius: 50px 50px 0px 0px;
+  justify-content: space-evenly;
+}
+@media (max-width:599.95px) {
+  .Footer-footer-41 {
+    justify-content: flex-start;
+  }
+}
+.Footer-heading-42 {
+  width: fit-content;
+  margin-left: 30px;
+  border-bottom: 3px solid rgba(25, 101, 233, 0.5);
+  margin-bottom: 12px;
+  padding-bottom: 9px;
+}
+.Footer-link-43 {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding-bottom: 12px;
+}
+.Footer-link-43:hover {
+  text-decoration: underline;
+}
+.Footer-icon-44 {
+  fill: rgba(25, 101, 233, 0.5);
+  margin-right: 6px;
+}
+.Footer-yearnIcon-45 {
+  display: flex;
+  min-height: 100%;
+  align-items: center;
+}
+.Footer-builtWith-46 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+@media (max-width:1199.95px) {
+  .Footer-builtWith-46 {
+    display: none;
+  }
+}
+.Footer-builtWithLink-47 {
+  padding-top: 12px;
+}
+.Footer-builtHeading-48 {
+  width: fit-content;
+  border-bottom: 3px solid rgba(25, 101, 233, 0.5);
+  margin-bottom: 12px;
+  padding-bottom: 9px;
+}
+.Footer-products-49 {
+  padding: 0px 24px;
+}
+@media (max-width:599.95px) {
+  .Footer-products-49 {
+    padding-bottom: 24px;
+  }
+}
+.Footer-community-50 {
+  padding: 0px 24px;
+}
+@media (max-width:599.95px) {
+  .Footer-community-50 {
+    padding-bottom: 24px;
+  }
+}
+.Footer-socials-51 {
+  padding: 0px 24px;
+}
+</style><style data-jss="" data-meta="Header">
+.Header-root-1 {
+  width: 100%;
+  display: flex;
+  vertical-align: top;
+}
+@media (max-width:899.95px) {
+  .Header-root-1 {
+    margin-bottom: 40px;
+  }
+}
+.Header-headerV2-2 {
+  width: 100%;
+  border: 1px solid #DC6BE5;
+  display: flex;
+  padding: 24px 32px;
+  background: #DC6BE5;
+  border-top: 1px solid#DC6BE5;
+  align-items: center;
+  border-radius: 20px 20px 50px 50px;
+  justify-content: center;
+}
+@media (max-width:899.95px) {
+  .Header-headerV2-2 {
+    padding: 16px 24px;
+    justify-content: space-between;
+  }
+}
+.Header-icon-3 {
+  flex: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.Header-links-4 {
+  display: flex;
+}
+.Header-link-5 {
+  cursor: pointer;
+  margin: 0px 12px;
+  padding: 12px 0px;
+}
+.Header-link-5:hover {
+  border-bottom: 3px solid rgba(25, 101, 233, 0.5);
+  padding-bottom: 9px;
+}
+.Header-title-6 {
+  text-transform: capitalize;
+}
+.Header-linkActive-7 {
+  cursor: pointer;
+  margin: 0px 12px;
+  padding: 12px 0px;
+  border-bottom: 3px solid rgba(25, 101, 233, 0.5);
+  padding-bottom: 9px;
+}
+.Header-account-8 {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+@media (max-width:899.95px) {
+  .Header-account-8 {
+    flex: 0;
+  }
+}
+.Header-walletAddress-9 {
+  border: 2px solid rgb(174, 174, 174);
+  cursor: pointer;
+  display: flex;
+  padding: 12px;
+  align-items: center;
+  border-radius: 50px;
+}
+.Header-walletAddress-9:hover {
+  border: 2px solid rgba(25, 101, 233, 0.5);
+  background: rgba(47, 128, 237, 0.1);
+}
+@media (max-width:899.95px) {
+  .Header-walletAddress-9 {
+    top: 90px;
+    border: 1px solid rgba(25, 101, 233, 0.5);
+    display: flex;
+    position: absolute;
+    background: #fff;
+  }
+}
+.Header-walletTitle-10 {
+  flex: 1;
+  color: rgba(43,57,84,.5);
+}
+.Header-connectedDot-11 {
+  width: 10px;
+  height: 10px;
+  opacity: 1;
+  background: #00d395;
+  margin-left: 6px;
+  margin-right: 3px;
+  border-radius: 10px;
+}
+.Header-name-12 {
+  padding-left: 24px;
+}
+@media (max-width:899.95px) {
+  .Header-name-12 {
+    display: none;
+  }
+}
+</style><style data-jss="" data-meta="MuiAutocomplete">
+.MuiAutocomplete-root.Mui-focused .MuiAutocomplete-clearIndicatorDirty {
+  visibility: visible;
+}
+@media (pointer: fine) {
+  .MuiAutocomplete-root:hover .MuiAutocomplete-clearIndicatorDirty {
+    visibility: visible;
+  }
+}
+.MuiAutocomplete-fullWidth {
+  width: 100%;
+}
+.MuiAutocomplete-tag {
+  margin: 3px;
+  max-width: calc(100% - 6px);
+}
+.MuiAutocomplete-tagSizeSmall {
+  margin: 2px;
+  max-width: calc(100% - 4px);
+}
+.MuiAutocomplete-inputRoot {
+  flex-wrap: wrap;
+}
+.MuiAutocomplete-hasPopupIcon .MuiAutocomplete-inputRoot, .MuiAutocomplete-hasClearIcon .MuiAutocomplete-inputRoot {
+  padding-right: 30px;
+}
+.MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon .MuiAutocomplete-inputRoot {
+  padding-right: 56px;
+}
+.MuiAutocomplete-inputRoot .MuiAutocomplete-input {
+  width: 0;
+  min-width: 30px;
+}
+.MuiAutocomplete-inputRoot[class*="MuiInput-root"] {
+  padding-bottom: 1px;
+}
+.MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"] {
+  padding: 9px;
+}
+.MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"][class*="MuiOutlinedInput-marginDense"] {
+  padding: 6px;
+}
+.MuiAutocomplete-inputRoot[class*="MuiFilledInput-root"] {
+  padding-top: 19px;
+  padding-left: 8px;
+}
+.MuiAutocomplete-inputRoot[class*="MuiFilledInput-root"][class*="MuiFilledInput-marginDense"] {
+  padding-bottom: 1px;
+}
+.MuiAutocomplete-inputRoot[class*="MuiFilledInput-root"][class*="MuiFilledInput-marginDense"] .MuiAutocomplete-input {
+  padding: 4.5px 4px;
+}
+.MuiAutocomplete-hasPopupIcon .MuiAutocomplete-inputRoot[class*="MuiFilledInput-root"], .MuiAutocomplete-hasClearIcon .MuiAutocomplete-inputRoot[class*="MuiFilledInput-root"] {
+  padding-right: 39px;
+}
+.MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon .MuiAutocomplete-inputRoot[class*="MuiFilledInput-root"] {
+  padding-right: 65px;
+}
+.MuiAutocomplete-inputRoot[class*="MuiFilledInput-root"] .MuiAutocomplete-input {
+  padding: 9px 4px;
+}
+.MuiAutocomplete-inputRoot[class*="MuiFilledInput-root"] .MuiAutocomplete-endAdornment {
+  right: 9px;
+}
+.MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"][class*="MuiOutlinedInput-marginDense"] .MuiAutocomplete-input {
+  padding: 4.5px 4px;
+}
+.MuiAutocomplete-hasPopupIcon .MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"], .MuiAutocomplete-hasClearIcon .MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"] {
+  padding-right: 39px;
+}
+.MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon .MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"] {
+  padding-right: 65px;
+}
+.MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"] .MuiAutocomplete-input {
+  padding: 9.5px 4px;
+}
+.MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"] .MuiAutocomplete-input:first-child {
+  padding-left: 6px;
+}
+.MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"] .MuiAutocomplete-endAdornment {
+  right: 9px;
+}
+.MuiAutocomplete-inputRoot[class*="MuiInput-root"][class*="MuiInput-marginDense"] .MuiAutocomplete-input {
+  padding: 4px 4px 5px;
+}
+.MuiAutocomplete-inputRoot[class*="MuiInput-root"][class*="MuiInput-marginDense"] .MuiAutocomplete-input:first-child {
+  padding: 3px 0 6px;
+}
+.MuiAutocomplete-inputRoot[class*="MuiInput-root"] .MuiAutocomplete-input {
+  padding: 4px;
+}
+.MuiAutocomplete-inputRoot[class*="MuiInput-root"] .MuiAutocomplete-input:first-child {
+  padding: 6px 0;
+}
+.MuiAutocomplete-input {
+  opacity: 0;
+  flex-grow: 1;
+  text-overflow: ellipsis;
+}
+.MuiAutocomplete-inputFocused {
+  opacity: 1;
+}
+.MuiAutocomplete-endAdornment {
+  top: calc(50% - 14px);
+  right: 0;
+  position: absolute;
+}
+.MuiAutocomplete-clearIndicator {
+  padding: 4px;
+  visibility: hidden;
+  margin-right: -2px;
+}
+.MuiAutocomplete-popupIndicator {
+  padding: 2px;
+  margin-right: -2px;
+}
+.MuiAutocomplete-popupIndicatorOpen {
+  transform: rotate(180deg);
+}
+.MuiAutocomplete-popper {
+  z-index: 1300;
+}
+.MuiAutocomplete-popperDisablePortal {
+  position: absolute;
+}
+.MuiAutocomplete-paper {
+  margin: 4px 0;
+  overflow: hidden;
+  font-size: 16px;
+  font-family: "Work Sans Thin",BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-weight: 300;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.MuiAutocomplete-listbox {
+  margin: 0;
+  padding: 8px 0;
+  overflow: auto;
+  list-style: none;
+  max-height: 40vh;
+}
+.MuiAutocomplete-loading {
+  color: #212529;
+  padding: 14px 16px;
+}
+.MuiAutocomplete-noOptions {
+  color: #212529;
+  padding: 14px 16px;
+}
+.MuiAutocomplete-option {
+  cursor: pointer;
+  display: flex;
+  outline: 0;
+  box-sizing: border-box;
+  min-height: 48px;
+  align-items: center;
+  padding-top: 6px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 6px;
+  justify-content: flex-start;
+  -webkit-tap-highlight-color: transparent;
+}
+@media (min-width:600px) {
+  .MuiAutocomplete-option {
+    min-height: auto;
+  }
+}
+.MuiAutocomplete-option[aria-selected="true"] {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+.MuiAutocomplete-option[data-focus="true"] {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+.MuiAutocomplete-option:active {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+.MuiAutocomplete-option[aria-disabled="true"] {
+  opacity: 0.38;
+  pointer-events: none;
+}
+.MuiAutocomplete-groupLabel {
+  top: -8px;
+  background-color: #fff;
+}
+.MuiAutocomplete-groupUl {
+  padding: 0;
+}
+.MuiAutocomplete-groupUl .MuiAutocomplete-option {
+  padding-left: 24px;
+}
+</style><style data-jss="" data-meta="Dashboard">
+.Dashboard-root-13 {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  max-width: 1200px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.Dashboard-baseTokenModule-14 {
+  margin: 8px;
+}
+.Dashboard-investedContainerLoggedOut-15 {
+  flex: 1;
+  display: flex;
+  min-width: 100%;
+  margin-top: 40px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (min-width:900px) {
+  .Dashboard-investedContainerLoggedOut-15 {
+    min-width: 900px;
+  }
+}
+.Dashboard-investedContainer-16 {
+  flex: 1;
+  display: flex;
+  min-width: 100%;
+  margin-top: 40px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+@media (min-width:900px) {
+  .Dashboard-investedContainer-16 {
+    min-width: 100px;
+  }
+}
+.Dashboard-disaclaimer-17 {
+  border: 1px solid rgb(174, 174, 174);
+  padding: 12px;
+  background: #fff;
+  border-radius: 0.75rem;
+  margin-bottom: 24px;
+}
+.Dashboard-portfolioContainer-18 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.Dashboard-vaultContainer-19 {
+  width: 100%;
+  border: 1px solid rgba(25, 101, 233, 0.5);
+  display: flex;
+  padding: 28px 30px;
+  background: #fff;
+  border-radius: 50px;
+  flex-direction: column;
+}
+.Dashboard-earnContainer-20 {
+  width: 100%;
+  border: 1px solid rgba(25, 101, 233, 0.5);
+  display: flex;
+  padding: 28px 30px;
+  background: #fff;
+  margin-top: 40px;
+  border-radius: 50px;
+  flex-direction: column;
+}
+.Dashboard-gray-21 {
+  color: rgba(43,57,84,.5);
+}
+.Dashboard-between-22 {
+  width: 40px;
+  height: 40px;
+}
+.Dashboard-titleBalance-23 {
+  flex: 1;
+  border: 1px solid rgba(25, 101, 233, 0.5);
+  cursor: pointer;
+  display: flex;
+  padding: 100px 100px;
+  background: #fff;
+  align-items: center;
+  border-radius: 50px;
+  flex-direction: row;
+  justify-content: center;
+}
+.Dashboard-prettyAlign-24 {
+  display: flex;
+  align-items: center;
+}
+.Dashboard-infoIcon-25 {
+  font-size: 1em;
+  margin-right: 6px;
+}
+.Dashboard-assetSummary-26 {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (min-width:600px) {
+  .Dashboard-assetSummary-26 {
+    flex-wrap: nowrap;
+  }
+}
+.Dashboard-assetIcon-27 {
+  width: 30px;
+  cursor: pointer;
+  height: 30px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin-right: 12px;
+  border-radius: 20px;
+  vertical-align: middle;
+}
+.Dashboard-heading-28 {
+  display: none;
+}
+@media (min-width:900px) {
+  .Dashboard-heading-28 {
+    display: flex;
+    min-width: 200px;
+    align-items: flex-end;
+    flex-direction: column;
+  }
+}
+.Dashboard-headingName-29 {
+  width: 325px;
+  display: flex;
+  align-items: center;
+}
+@media (max-width:899.95px) {
+  .Dashboard-headingName-29 {
+    flex: 1;
+    width: auto;
+  }
+}
+.Dashboard-flexy-30 {
+  display: flex;
+  align-items: center;
+}
+.Dashboard-vault-31 {
+  padding: 12px;
+  border-bottom: 1px solid rgba(25, 101, 233, 0.2);
+}
+.Dashboard-vault-31:last-child {
+  border-bottom: none;
+}
+.Dashboard-sectionHeading-32 {
+  color: rgba(43,57,84,.5);
+  width: 100%;
+  margin-left: 54px;
+}
+.Dashboard-inline-33 {
+  display: flex;
+  align-items: center;
+}
+@media (min-width:900px) {
+  .Dashboard-inline-33 {
+    width: auto;
+    display: flex;
+    min-width: 200px;
+    align-items: center;
+    flex-direction: row;
+  }
+}
+.Dashboard-symbol-34 {
+  padding-left: 6px;
+}
+.Dashboard-symbolAt-35 {
+  color: rgba(43,57,84,.5);
+  padding-left: 6px;
+}
+.Dashboard-basedOnContainer-36 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+</style></head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"><div style="display: flex; flex-direction: column; min-height: 100vh; align-items: center; background: rgb(249, 250, 251);"><div class="Header-root-1"><div class="Header-headerV2-2"><div class="Header-icon-3"><img alt="" src="./yearn_files/YFI-logo.c69913c1.png" height="40px"><h3 class="MuiTypography-root Header-name-12 MuiTypography-h3">AGG.Exchange</h3></div><div class="Header-links-4"><div class="Header-linkActive-7"><h4 class="MuiTypography-root title MuiTypography-h4">SWAP</h4></div><div class="Header-link-5"><h4 class="MuiTypography-root title MuiTypography-h4">FAQ</h4></div><div class="Header-link-5"><h4 class="MuiTypography-root title MuiTypography-h4">Github</h4></div></div><div class="Header-account-8"><h4 class="MuiTypography-root Header-walletAddress-9 MuiTypography-h4 MuiTypography-noWrap">0x4199...bf4d<div class="Header-connectedDot-11"></div></h4></div></div></div><div class="Dashboard-root-13"><div class="Dashboard-investedContainer-16"><div class="Dashboard-portfolioContainer-18"><div class="Dashboard-titleBalance-23"><div class="Dashboard-inline-33"><div class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon" role="combobox" aria-expanded="false" style="width: 150px;"><div class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"><label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled" data-shrink="true" for="country-select-demo" id="country-select-demo-label">From Tokens</label><div class="MuiInputBase-root MuiOutlinedInput-root MuiAutocomplete-inputRoot MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"><input aria-invalid="false" autocomplete="off" id="country-select-demo" type="text" class="MuiInputBase-input MuiOutlinedInput-input MuiAutocomplete-input MuiAutocomplete-inputFocused MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd" aria-autocomplete="list" autocapitalize="none" spellcheck="false" value="CHAI"><div class="MuiAutocomplete-endAdornment"><button class="MuiButtonBase-root MuiIconButton-root MuiAutocomplete-clearIndicator MuiAutocomplete-clearIndicatorDirty" tabindex="-1" type="button" aria-label="Clear" title="Clear"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></span><span class="MuiTouchRipple-root"></span></button><button class="MuiButtonBase-root MuiIconButton-root MuiAutocomplete-popupIndicator" tabindex="-1" type="button" aria-label="Open" title="Open"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5z"></path></svg></span><span class="MuiTouchRipple-root"></span></button></div><fieldset aria-hidden="true" class="PrivateNotchedOutline-root-37 MuiOutlinedInput-notchedOutline"><legend class="PrivateNotchedOutline-legendLabelled-39 PrivateNotchedOutline-legendNotched-40"><span>From Tokens</span></legend></fieldset></div></div></div><div class="MuiFormControl-root MuiTextField-root" style="width: 180px; margin-left: 15px;"><label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-focused Mui-focused" data-shrink="true" for="number" id="number-label">Balance</label><div class="MuiInputBase-root MuiOutlinedInput-root Mui-focused Mui-focused MuiInputBase-formControl"><input aria-invalid="false" id="number" class="MuiInputBase-input MuiOutlinedInput-input" value=""><fieldset aria-hidden="true" class="PrivateNotchedOutline-root-37 MuiOutlinedInput-notchedOutline"><legend class="PrivateNotchedOutline-legendLabelled-39 PrivateNotchedOutline-legendNotched-40"><span>Balance</span></legend></fieldset></div></div></div></div></div></div></div><div class="Footer-footer-41"><div class="Footer-builtWith-46"><h6 class="MuiTypography-root Footer-builtHeading-48 MuiTypography-h6">AGG.Exchange</h6><img alt="" src="./yearn_files/YFI-logo.c69913c1.png" height="120px" width="120px"><div class="Footer-link-43 Footer-builtWithLink-47"><svg class="MuiSvgIcon-root Footer-icon-44" focusable="false" viewBox="0 0 24 24" aria-hidden="true" height="15px"><path fill="none" d="M0 0h24v24H0z" clip-rule="evenodd"></path><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"></path></svg><h4 class="MuiTypography-root MuiTypography-h4">Built with</h4></div></div><div class="Footer-community-50"><h6 class="MuiTypography-root Footer-heading-42 MuiTypography-h6">Community</h6><div class="Footer-link-43"><svg class="MuiSvgIcon-root Footer-icon-44" focusable="false" viewBox="0 0 24 24" aria-hidden="true" height="15px"><path fill="none" d="M0 0h24v24H0z"></path><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"></path></svg><h4 class="MuiTypography-root MuiTypography-h4">AGG.info</h4></div><div class="Footer-link-43"><svg class="MuiSvgIcon-root Footer-icon-44" focusable="false" viewBox="0 0 24 24" aria-hidden="true" height="15px"><path fill="none" d="M0 0h24v24H0z"></path><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"></path></svg><h4 class="MuiTypography-root MuiTypography-h4">AGG.finance</h4></div></div><div class="Footer-socials-51"><h6 class="MuiTypography-root Footer-heading-42 MuiTypography-h6">Socials</h6><div class="Footer-link-43"><img alt="" src="./yearn_files/twitter.d096bc16.svg" height="24px" class="Footer-icon-44"><h4 class="MuiTypography-root MuiTypography-h4">Twitter</h4></div><div class="Footer-link-43"><img alt="" src="./yearn_files/github.7611642e.svg" height="24px" class="Footer-icon-44"><h4 class="MuiTypography-root MuiTypography-h4">Github</h4></div></div></div></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script src="./yearn_files/bundle.js.下载"></script><script src="./yearn_files/14.chunk.js.下载"></script><script src="./yearn_files/main.chunk.js.下载"></script>
+
+</body></html>
