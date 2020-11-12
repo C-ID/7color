@@ -29,10 +29,10 @@ const styles = theme => ({
   },
   headerV2: {
     background: colors.white,
-    border: '1px solid '+colors.borderBlue,
+    border: '5px solid '+colors.gray,
     borderTop: 'none',
     width: '100%',
-    borderRadius: '0px 0px 50px 50px',
+    borderRadius: '50px 50px 50px 50px',
     display: 'flex',
     padding: '24px 32px',
     alignItems: 'center',
@@ -142,7 +142,7 @@ class Header extends Component {
 
   connectionConnected = () => {
     this.setState({ account: store.getStore('account') })
-    this.setAddressEnsName();
+    // this.setAddressEnsName();
   };
 
   connectionDisconnected = () => {
@@ -229,10 +229,6 @@ class Header extends Component {
   }
 
   nav = (screen) => {
-    if(screen === 'cover') {
-      window.open("https://yinsure.finance", "_blank")
-      return
-    }
     this.props.history.push('/'+screen)
   }
 

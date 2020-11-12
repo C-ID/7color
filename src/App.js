@@ -8,8 +8,14 @@ import {
 import IpfsRouter from 'ipfs-react-router'
 import SevenColorsTheme from './theme';
 import { injected } from "./stores/connectors";
+
+import {
+  CONNECTION_CONNECTED,
+} from './constants'
+
 import Store from "./stores";
 
+import ExchangeDashboard from './components/exchange';
 import Header from './components/header';
 
 const emitter = Store.emitter
@@ -25,12 +31,14 @@ class App extends Component {
         injected.activate()
         .then((a) => {
           store.setStore({ account: { address: a.account }, web3context: { library: { provider: a.provider } } })
+          emitter.emit(CONNECTION_CONNECTED)
           console.log(a)
         })
         .catch((e) => {
           console.log(e)
         })
       } else {
+        console.log("Have not activated!")
       }
     });
   }
@@ -46,9 +54,12 @@ class App extends Component {
               alignItems: 'center',
               background: "#f9fafb"
             }}>
+              <Switch>
                 <Route path='/'>
                   <Header />
+                  <ExchangeDashboard />
                 </Route>
+              </Switch>  
             </div>
         </IpfsRouter>
       </MuiThemeProvider>

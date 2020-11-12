@@ -55,9 +55,7 @@ class Store {
       account: {},
       web3: null,
       events: [],
-      mulitSwap: {
-        tokenList: []
-      },
+      tokenDashboard: null,
       connectorsByName: {
         MetaMask: injected,
         TrustWallet: injected,
@@ -552,13 +550,9 @@ class Store {
     let dashboard = {
       tokenList: tokens
     }
-    store.setStore({ dashboard: dashboard })
+    store.setStore({ tokenDashboard: dashboard })
     emitter.emit(TOEKEN_DASHBOARD_SNAPSHOT_RETURNED, dashboard)
     // console.log(store.getStore('dashboard'))
-  }
-
-  getDashboardSnapshot = (payload) => {
-    this.getloadTokenList(payload)
   }
 }
 
