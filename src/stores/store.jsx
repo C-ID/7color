@@ -544,7 +544,7 @@ class Store {
       address: "0x0000000000000000000000000000000000000000",
       symbol: "ETH",
       decimals: 18,
-      iconUrl: "src/assets/eth.png"
+      iconUrl: "./src/assets/eth.png"
     }
     tokens.push(eth)
     let dashboard = {

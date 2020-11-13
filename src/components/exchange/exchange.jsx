@@ -1,17 +1,19 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { withStyles } from '@material-ui/core/styles';
-import { ArrowRight, AlertTriangle } from 'react-feather'
+import { ArrowRight, AlertTriangle } from 'react-feather';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import * as moment from 'moment';
 import {
   Typography,
   Tooltip,
   TextField,
-  MenuItem
+  MenuItem,
+  Button
 } from '@material-ui/core';
-import { colors } from '../../theme'
+import { colors } from '../../theme';
 
-import Loader from '../loader'
+import Loader from '../loader';
 import InfoIcon from '@material-ui/icons/Info';
 
 import {
@@ -20,7 +22,7 @@ import {
   CONNECTION_DISCONNECTED,
   GET_TOEKEN_DASHBOARD_SNAPSHOT,
   TOEKEN_DASHBOARD_SNAPSHOT_RETURNED,
-} from '../../constants'
+} from '../../constants';
 
 import Store from "../../stores";
 
@@ -252,33 +254,44 @@ class ExchangeDashboard extends Component {
     return (
       <div className={ classes.root }>
         <div className={ classes.investedContainer}>
-          <div className={ classes.portfolioContainer }>
-            <div className={ classes.titleBalance } onClick={ this.balanceClicked }>
-              { currency === 'USD' && <Typography variant={ 'h2' }>$ { "100000" }</Typography> }
-              { currency === 'ETH' &&
-                <div className={ classes.inline }>
-                  <Typography className={ classes.symbol } variant={ 'h3' }>ETH</Typography>
-                </div>
-              }
-              <Typography variant={ 'h4' } className={ classes.gray }>Portfolio Balance</Typography>
-            </div>
-            <ArrowRight size="50" color={colors.black} style={{ marginLeft: '4px', minWidth: '16px' }}></ArrowRight>
-            <div className={ classes.titleBalance } onClick={ this.balanceClicked }>
-              { currency === 'USD' && <Typography variant={ 'h2' }>$ { "30000" }</Typography> }
-              { currency === 'ETH' &&
-                <div className={ classes.inline }>
-                  <Typography variant={ 'h2' } noWrap>{ "20000" }</Typography >
-                  <Typography className={ classes.symbol } variant={ 'h3' }>ETH</Typography>
-                </div>
-              }
-            <Typography variant={ 'h4' } className={ `${classes.gray} ${classes.prettyAlign}` }>
-                Daily Growth
-            </Typography>
-            </div>
-          </div>
-        </div>
-        { loading && <Loader /> }
+          <Autocomplete 
+          id="country-select-demo"
+          style={{ width: 150}}
+          options={dashboard.tokenList}
+          classes={{
+            option: classes.option,
+          }}
+          getOptionLabel={(option) => option.symbol}
+          onChange={this.selectToken}
+          renderOption={(option) => (
+            <React.Fragment> <img alt="" src={option.iconUrl} height="30px" width="30px" />{option.symbol}</React.Fragment>
+          )}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              label="From Tokens"
+              variant="outlined"
+            />
+          )}/>
+        <TextField 
+          id="number" 
+          label="Balance"
+          type={Number}
+          style={{width: 180, marginLeft: "15px"}}
+          variant="outlined"
+          onChange={this._handleTextFieldChange}/>
+        <Button
+          className={ classes.buttons }
+          variant='outlined'
+          disabled={ loading }
+          style={{width: 120, marginLeft: "15px"}}
+          color="primary"
+          onClick={this.getexceptedReturn}>
+          <Typography color={'secondary'}>Get Excepted Return</Typography>
+        </Button>
       </div>
+      { loading && <Loader /> }
+    </div>
     )
   };
 
