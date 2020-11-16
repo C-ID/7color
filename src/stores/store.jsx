@@ -55,7 +55,9 @@ class Store {
       account: {},
       web3: null,
       events: [],
-      tokenDashboard: null,
+      tokenDashboard: {
+        tokenList: []
+      },
       connectorsByName: {
         MetaMask: injected,
         TrustWallet: injected,
@@ -523,36 +525,35 @@ class Store {
   }
 
   getloadTokenList = async (payload) => {
-    const account = store.getStore('account')
-    // console.log(account)
-    // const { asset, amount } = payload.content
-    const url = "https://wispy-bird-88a7.uniswap.workers.dev/?url=http://tokens.1inch.eth.link"
+    const url = "https://api.1inch.exchange/v1.1/tokens"
     const res = await rp(url);
     const jsonRes = await JSON.parse(res)
-    var tokens = Array.from(jsonRes.tokens)
-    var tokens = tokens.map(item => {
-      const container = {}
-      container.address = item.address
-      container.decimals = item.decimals
-      container.symbol = item.symbol
-      container.iconUrl = item.logoURI
-      // container.balance = this._getERC20Balance(item, account)
-      return container
-    })
+    console.log(jsonRes)
+    var tokens = Array.from(jsonRes)
+    console.log(tokens)
+    // var tokens = new Array()
+    // var tokens = tokens.map(item => {
+    //   const container = {}
+    //   container.address = item.address
+    //   container.decimals = item.decimals
+    //   container.symbol = item.symbol
+    //   container.iconUrl = item.logoURI
+    //   return container
+    // })
     // console.log(tokens)
-    var eth = {
-      address: "0x0000000000000000000000000000000000000000",
-      symbol: "ETH",
-      decimals: 18,
-      iconUrl: "./src/assets/eth.png"
-    }
-    tokens.push(eth)
+    
+    // var eth = {
+    //   address: "0x0000000000000000000000000000000000000000",
+    //   symbol: "ETH",
+    //   decimals: 18,
+    //   iconUrl: "../../assets/eth.png"
+    // }
+    // tokens.push(eth)
     let dashboard = {
       tokenList: tokens
     }
     store.setStore({ tokenDashboard: dashboard })
     emitter.emit(TOEKEN_DASHBOARD_SNAPSHOT_RETURNED, dashboard)
-    // console.log(store.getStore('dashboard'))
   }
 }
 

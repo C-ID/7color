@@ -201,10 +201,9 @@ class ExchangeDashboard extends Component {
   constructor(props) {
     super()
 
-    const dashboard = store.getStore('dashboard')
+    const dashboard = store.getStore('tokenDashboard')
     const account = store.getStore('account')
     const currency = localStorage.getItem('token-dashboard-currency')
-
     this.state = {
       dashboard: dashboard,
       loading: true,
@@ -231,7 +230,7 @@ class ExchangeDashboard extends Component {
   dashboardSnapshotReturned = () => {
     this.setState({
       loading: false,
-      dashboard: store.getStore('dashboard')
+      dashboard: store.getStore('tokenDashboard')
     })
   };
 
@@ -315,7 +314,6 @@ class ExchangeDashboard extends Component {
         </div>
     )
   };
-
 }
 
   export default withRouter(withStyles(styles)(ExchangeDashboard));
