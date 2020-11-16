@@ -253,7 +253,7 @@ class ExchangeDashboard extends Component {
     return (
       <div className={ classes.root }>
         <div className={ classes.investedContainer}>
-          <Autocomplete 
+          {/* <Autocomplete 
           id="country-select-demo"
           style={{ width: 150}}
           options={dashboard.tokenList}
@@ -262,7 +262,7 @@ class ExchangeDashboard extends Component {
           }}
           getOptionLabel={(option) => option.symbol}
           onChange={this.selectToken}
-          renderOption={(option) => (
+          renderOption={(option) => ( 
             <React.Fragment> <img alt="" src={option.iconUrl} height="30px" width="30px" />{option.symbol}</React.Fragment>
           )}
           renderInput={(params) => (
@@ -285,9 +285,20 @@ class ExchangeDashboard extends Component {
           disabled={ loading }
           style={{width: 120, marginLeft: "15px"}}
           color="primary"
+          onClick={store._checkApproval}>
+          <Typography color={'secondary'}>Check approve</Typography>
+        </Button>
+
+        
+        <Button
+          className={ classes.buttons }
+          variant='outlined'
+          disabled={ loading }
+          style={{width: 120, marginLeft: "15px"}}
+          color="primary"
           onClick={this.getexceptedReturn}>
           <Typography color={'secondary'}>Get Excepted Return</Typography>
-        </Button>
+        </Button> */}
       </div>
       { loading && <Loader /> }
     </div>

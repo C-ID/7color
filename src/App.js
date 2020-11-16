@@ -15,7 +15,7 @@ import {
 
 import Store from "./stores";
 
-import ExchangeDashboard from './components/exchange';
+import ExchangeDashboard from './components/Exchange';
 import Header from './components/header';
 
 const emitter = Store.emitter

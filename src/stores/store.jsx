@@ -525,30 +525,28 @@ class Store {
   }
 
   getloadTokenList = async (payload) => {
-    const url = "https://api.1inch.exchange/v1.1/tokens"
+    const url = "https://wispy-bird-88a7.uniswap.workers.dev/?url=http://tokens.1inch.eth.link"
     const res = await rp(url);
     const jsonRes = await JSON.parse(res)
-    console.log(jsonRes)
-    var tokens = Array.from(jsonRes)
-    console.log(tokens)
-    // var tokens = new Array()
-    // var tokens = tokens.map(item => {
-    //   const container = {}
-    //   container.address = item.address
-    //   container.decimals = item.decimals
-    //   container.symbol = item.symbol
-    //   container.iconUrl = item.logoURI
-    //   return container
-    // })
+    var tokens = Array.from(jsonRes.tokens)
+    var tokens = tokens.map(item => {
+      const container = {}
+      container.address = item.address
+      container.decimals = item.decimals
+      container.symbol = item.symbol
+      container.iconUrl = item.logoURI
+      return container
+    })
     // console.log(tokens)
     
-    // var eth = {
-    //   address: "0x0000000000000000000000000000000000000000",
-    //   symbol: "ETH",
-    //   decimals: 18,
-    //   iconUrl: "../../assets/eth.png"
-    // }
-    // tokens.push(eth)
+    var eth = {
+      address: "0x0000000000000000000000000000000000000000",
+      symbol: "ETH",
+      decimals: 18,
+      iconUrl: "https://tokens.1inch.exchange/0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee.png"
+    }
+    
+    tokens.push(eth)
     let dashboard = {
       tokenList: tokens
     }
