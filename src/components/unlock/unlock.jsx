@@ -19,9 +19,9 @@ import {
   ERROR,
   CONNECTION_DISCONNECTED,
   CONNECTION_CONNECTED
-} from '../../constants'
+} from '../../constants/constants'
 
-import Store from "../../stores";
+import Store from "../../stores/store";
 const emitter = Store.emitter
 const store = Store.store
 

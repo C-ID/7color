@@ -122,6 +122,8 @@ class Store {
           case GET_TOEKEN_DASHBOARD_SNAPSHOT:
             this.getloadTokenList(payload)
             break;
+          // case CHECK_APPROVE:
+          //   this._checkApproval(payload)
           default: {
           }
         }
