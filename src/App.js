@@ -5,7 +5,8 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import IpfsRouter from 'ipfs-react-router'
+import IpfsRouter from 'ipfs-react-router';
+import './i18n';
 import SevenColorsTheme from './theme';
 import { injected } from "./stores/connectors";
 
@@ -15,16 +16,26 @@ import {
 
 import Store from "./stores";
 
-import ExchangeDashboard from './components/Exchange';
+import ExchangeDashboard from './components/exchange';
 import Header from './components/header';
 
-const emitter = Store.emitter
+const emitter = Store.emittere
 const store = Store.store
 
 
 class App extends Component {
   state = {};
 
+  updateAccount () {
+    window.ethereum.on('accountsChanged', function (accounts) {
+      store.setStore({ account: { address: accounts[0] } })
+
+      const web3context = store.getStore('web3context')
+      if(web3context) {
+        emitter.emit(CONNECTION_CONNECTED)
+      }
+    })
+  }
   componentWillMount() {
     injected.isAuthorized().then(isAuthorized => {
       if (isAuthorized) {
@@ -32,16 +43,25 @@ class App extends Component {
         .then((a) => {
           store.setStore({ account: { address: a.account }, web3context: { library: { provider: a.provider } } })
           emitter.emit(CONNECTION_CONNECTED)
-          console.log(a)
         })
         .catch((e) => {
           console.log(e)
         })
       } else {
-        console.log("Have not activated!")
+
       }
     });
+
+    if(window.ethereum) {
+      this.updateAccount()
+    } else {
+      window.addEventListener('ethereum#initialized', this.updateAccount, {
+        once: true,
+      });
+    }
   }
+
+  
   render() {
     return (
       <MuiThemeProvider theme={ createMuiTheme(SevenColorsTheme) }>

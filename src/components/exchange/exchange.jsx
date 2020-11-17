@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { withStyles } from '@material-ui/core/styles';
-import { ArrowRight, AlertTriangle } from 'react-feather';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import * as moment from 'moment';
 import {
@@ -253,7 +252,7 @@ class ExchangeDashboard extends Component {
     return (
       <div className={ classes.root }>
         <div className={ classes.investedContainer}>
-          {/* <Autocomplete 
+          <Autocomplete 
           id="country-select-demo"
           style={{ width: 150}}
           options={dashboard.tokenList}
@@ -298,7 +297,7 @@ class ExchangeDashboard extends Component {
           color="primary"
           onClick={this.getexceptedReturn}>
           <Typography color={'secondary'}>Get Excepted Return</Typography>
-        </Button> */}
+        </Button>
       </div>
       { loading && <Loader /> }
     </div>

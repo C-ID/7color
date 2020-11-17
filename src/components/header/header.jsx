@@ -4,17 +4,17 @@ import {
   Typography
 } from '@material-ui/core';
 import { withRouter } from "react-router-dom";
-import { colors } from '../../theme'
+import { colors } from '../../theme/theme'
 import ENS from 'ethjs-ens';
 
 import {
   CONNECTION_CONNECTED,
   CONNECTION_DISCONNECTED,
-} from '../../constants'
+} from '../../constants/constants'
 
 import UnlockModal from '../unlock/unlockModal.jsx'
 
-import Store from "../../stores";
+import Store from "../../stores/store";
 const emitter = Store.emitter
 const store = Store.store
 

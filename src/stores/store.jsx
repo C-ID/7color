@@ -1,4 +1,4 @@
-import config from "../config";
+import config from "../config/config";
 import async from 'async';
 import {
   ERROR,
@@ -16,7 +16,7 @@ import {
   SWAP_RETURNED,
   GET_TOEKEN_DASHBOARD_SNAPSHOT,
   TOEKEN_DASHBOARD_SNAPSHOT_RETURNED
-} from '../constants';
+} from '../constants/constants';
 import Web3 from 'web3';
 
 import {

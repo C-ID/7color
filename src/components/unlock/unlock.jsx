@@ -104,6 +104,10 @@ class Unlock extends Component {
     emitter.removeListener(ERROR, this.error);
   };
 
+  navigateInvest = () => {
+    this.props.history.push('/invest')
+  }
+
   error = (err) => {
     this.setState({ loading: false, error: err, metamaskLoading: false, ledgerLoading: false })
   };
@@ -217,6 +221,18 @@ function MyComponent(props) {
     }
   }, [account, active, closeModal, context, library]);
 
+  // React.useEffect(() => {
+  //   if (storeContext && storeContext.active && !active) {
+  //     console.log("we are deactive: "+storeContext.account)
+  //     store.setStore({ account: {}, web3context: null })
+  //   }
+  // }, [active, storeContext]);
+
+  // handle logic to eagerly connect to the injected ethereum provider, if it exists and has granted access already
+  // const triedEager = useEagerConnect();
+
+  // handle logic to connect in reaction to certain events on the injected ethereum provider, if it exists
+  // useInactiveListener(!triedEager || !!activatingConnector);
   const width = window.innerWidth
 
   return (
