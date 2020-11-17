@@ -19,7 +19,7 @@ import Store from "./stores";
 import ExchangeDashboard from './components/exchange';
 import Header from './components/header';
 
-const emitter = Store.emittere
+const emitter = Store.emitter
 const store = Store.store
 
 

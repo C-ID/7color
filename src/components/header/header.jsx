@@ -188,7 +188,7 @@ class Header extends Component {
               height={ '40px' }
               onClick={ () => { this.nav('') } }
             />
-            <Typography variant={ 'h3'} className={ classes.name } onClick={ () => { this.nav('') } }>7Colors Investment</Typography>
+            <Typography variant={ 'h3'} className={ classes.name } onClick={ () => { this.nav('') } }>7colors Investment</Typography>
           </div>
           <div className={ classes.links }>
             { this.renderLink('Exchange') }
