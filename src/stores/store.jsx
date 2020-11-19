@@ -230,59 +230,29 @@ class Store {
     }
   }
 
-
   mulitSwap = (payload) => {
     const account = store.getStore('account')
-    const { sendAsset, amount } = payload.content
-
-    let yCurveZapSwapContract = config.yCurveZapSwapAddress
-    if (sendAsset.id === 'crvV3') {
-      yCurveZapSwapContract = config.yCurveZapSwapV4Address
-    }
-
-    this._checkApproval(sendAsset, account, amount, yCurveZapSwapContract, (err) => {
+    const web3 = new Web3(store.getStore('web3context').library.provider);
+    const { swapPair } = payload.content
+    let swapInstance = new web3.eth.Contract(config.mulitSwapAddress, config.mulitSwapABI)
+    this._callSwap(swapPair, account, (err, swapResult) => {
       if(err) {
         return emitter.emit(ERROR, err);
       }
-
-      this._callSwap(sendAsset, account, amount, (err, swapResult) => {
-        if(err) {
-          return emitter.emit(ERROR, err);
-        }
-
-        return emitter.emit(SWAP_RETURNED, swapResult)
-      })
+      return emitter.emit(SWAP_RETURNED, swapResult)
     })
   }
 
-  _callSwap = async (sendAsset, account, amount, callback) => {
+  _callSwap = async (swapPair, account, callback) => {
     const web3 = new Web3(store.getStore('web3context').library.provider);
-
+    
     var amountToSend = web3.utils.toWei(amount, "ether")
-    if (sendAsset.decimals !== 18) {
-      amountToSend = amount*10**sendAsset.decimals;
-    }
+    // if (sendAsset.decimals !== 18) {
+    //   amountToSend = amount*10**sendAsset.decimals;
+    // }
 
-    let call = ''
-
-    switch (sendAsset.id) {
-      case 'crvV1':
-        call = 'swapv1tov3'
-        break;
-      case 'crvV2':
-        call = 'swapv2tov3'
-        break;
-      case 'crvV3':
-        call = 'swapv3tov4'
-        break;
-      default:
-    }
-
-    let yCurveZapSwapContract = new web3.eth.Contract(config.yCurveZapSwapABI, config.yCurveZapSwapAddress)
-    if (sendAsset.id === 'crvV3') {
-      yCurveZapSwapContract = new web3.eth.Contract(config.yCurveZapSwapV4ABI, config.yCurveZapSwapV4Address)
-    }
-    yCurveZapSwapContract.methods[call](amountToSend).send({ from: account.address, gasPrice: web3.utils.toWei(await this._getGasPrice(), 'gwei') })
+    let swapContract = new web3.eth.Contract(config.mulitSwapAddress, config.mulitSwapABI)
+    swapContract.methods.muiltSwap.send({ from: account.address, gasPrice: web3.utils.toWei(await this._getGasPrice(), 'gwei') })
       .on('transactionHash', function(hash){
         console.log(hash)
         callback(null, hash)

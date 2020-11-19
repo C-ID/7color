@@ -362,10 +362,33 @@ class ExchangeDashboard extends Component {
         decimals: 18,
         symbol: "ETH"
       } 
-    },
-
+    },{
+      from: {
+        erc20address: "0xc778417E063141139Fce010982780140Aa0cD5Ab",
+        decimals: 18,
+        symbol: "WETH",
+        amountIn: "100000000000000000"
+      },
+      to: {
+        erc20address: "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+        decimals: 18,
+        symbol: "ETH"
+      } 
+    },{
+      from: {
+        erc20address: "0x20fE562d797A42Dcb3399062AE9546cd06f63280",
+        decimals: 18,
+        symbol: "LINK",
+        amountIn: "1000000000000000000"
+      },
+      to: {
+        erc20address: "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+        decimals: 18,
+        symbol: "ETH"
+      } 
+    }
   ]
-    const amount = "1000000000000000000"
+  dispatcher.dispatch({ type: ZAP, content: { amount: sendAmount, sendAsset: sendAsset, receiveAsset: receiveAsset } })
   };
 
 
