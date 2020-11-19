@@ -312,7 +312,7 @@ class ExchangeDashboard extends Component {
           disabled={ loading }
           style={{width: 120, marginLeft: "15px"}}
           color="primary"
-          onClick={this.getexceptedReturn}>
+          onClick={this.swap}>
           <Typography color={'secondary'}>Get Excepted Return</Typography>
         </Button>
       </div>
@@ -328,6 +328,7 @@ class ExchangeDashboard extends Component {
     localStorage.setItem('token-dashboard-currency', (currency === 'USD' ? 'ETH' : 'USD'))
   };
 
+  // for example.
   checkApproval = () => {
     const { account } = this.state
     this.setState({ loading: true })
@@ -343,21 +344,33 @@ class ExchangeDashboard extends Component {
         return emitter.emit(ERROR, err);
       }
     })
-  }
-
-  renderBaseModal = () => {
-    const { classes } = this.props;
-    const {
-      loading,
-      dashboard,
-      currency
-    } = this.state
-
-    return (
-        <div className={ classes.portfolioContainer }>
-        </div>
-    )
   };
+
+  //for example.
+  swap = () => {
+    const { account } = this.state
+    this.setState({ loading: true })
+    const swapPairs = [{
+      from: {
+        erc20address: "0xaD6D458402F60fD3Bd25163575031ACDce07538D",
+        decimals: 18,
+        symbol: "DAI",
+        amountIn: "1000000000000000000"
+      },
+      to: {
+        erc20address: "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+        decimals: 18,
+        symbol: "ETH"
+      } 
+    },
+
+  ]
+    const amount = "1000000000000000000"
+  };
+
+
+
+
 }
 
   export default withRouter(withStyles(styles)(ExchangeDashboard));
