@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import { withStyles } from '@material-ui/core/styles';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import * as moment from 'moment';
+import config from "../../config/config";
 import {
   Typography,
   Tooltip,
@@ -330,8 +331,18 @@ class ExchangeDashboard extends Component {
   checkApproval = () => {
     const { account } = this.state
     this.setState({ loading: true })
-    store._checkIfApprovalIsNeeded()
+    const asset = {
+      erc20address: "0xaD6D458402F60fD3Bd25163575031ACDce07538D",
+      decimals: 18,
+      symbol: "DAI"
+    }
+    const amount = "1000000000000000000"
     
+    store._checkApproval(asset, account, amount, config.mulitSwapAddress, (err) => {
+      if(err) {
+        return emitter.emit(ERROR, err);
+      }
+    })
   }
 
   renderBaseModal = () => {

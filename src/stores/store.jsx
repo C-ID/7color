@@ -145,12 +145,12 @@ class Store {
     if(asset.erc20address === 'Ethereum') {
       return callback()
     }
-
     const web3 = new Web3(store.getStore('web3context').library.provider);
     let erc20Contract = new web3.eth.Contract(config.erc20ABI, asset.erc20address)
+    console.log(amount)
     try {
       const allowance = await erc20Contract.methods.allowance(account.address, contract).call({ from: account.address })
-
+      
       const ethAllowance = web3.utils.fromWei(allowance, "ether")
 
       if(parseFloat(ethAllowance) < parseFloat(amount)) {
@@ -370,18 +370,26 @@ class Store {
     try {
       const allowance = await erc20Contract.methods.allowance(account.address, contract).call({ from: account.address })
 
-      const ethAllowance = web3.utils.fromWei(allowance, "ether")
+      let ethAllowance = web3.utils.fromWei(allowance, "ether")
+      if (asset.decimals !== 18) {
+        ethAllowance = (allowance*10**asset.decimals).toFixed(0);
+      }
+
+      var amountToSend = web3.utils.toWei('999999999', "ether")
+      if (asset.decimals !== 18) {
+        amountToSend = (999999999*10**asset.decimals).toFixed(0);
+      }
 
       if(parseFloat(ethAllowance) < parseFloat(amount)) {
         /*
           code to accomodate for "assert _value == 0 or self.allowances[msg.sender][_spender] == 0" in contract
           We check to see if the allowance is > 0. If > 0 set to 0 before we set it to the correct amount.
         */
-        if(['crvV1', 'crvV2', 'crvV3', 'crvV4', 'USDTv1', 'USDTv2', 'USDTv3', 'USDT', 'sCRV'].includes(asset.id) && ethAllowance > 0) {
+        if(ethAllowance > 0) {
           await erc20Contract.methods.approve(contract, web3.utils.toWei('0', "ether")).send({ from: account.address, gasPrice: web3.utils.toWei(await this._getGasPrice(), 'gwei') })
         }
 
-        await erc20Contract.methods.approve(contract, web3.utils.toWei('999999999999', "ether")).send({ from: account.address, gasPrice: web3.utils.toWei(await this._getGasPrice(), 'gwei') })
+        await erc20Contract.methods.approve(contract, amountToSend).send({ from: account.address, gasPrice: web3.utils.toWei(await this._getGasPrice(), 'gwei') })
         callback()
       } else {
         callback()
@@ -412,24 +420,23 @@ class Store {
     const web3 = new Web3(store.getStore('web3context').library.provider);
     let erc20Contract = new web3.eth.Contract(config.erc20ABI, asset.erc20address)
     try {
-      if(['crvV1', 'crvV2', 'crvV3', 'crvV4', 'USDTv1', 'USDTv2', 'USDTv3', 'USDT'].includes(asset.id)) {
-        const allowance = await erc20Contract.methods.allowance(account.address, contract).call({ from: account.address })
-        const ethAllowance = web3.utils.fromWei(allowance, "ether")
-        if(ethAllowance > 0) {
-          erc20Contract.methods.approve(contract, web3.utils.toWei('0', "ether")).send({ from: account.address, gasPrice: web3.utils.toWei(await this._getGasPrice(), 'gwei') })
-            .on('transactionHash', function(hash){
-              //success...
-            })
-            .on('error', function(error) {
-              if (!error.toString().includes("-32601")) {
-                if(error.message) {
-                  return callback(error.message)
-                }
-                callback(error)
+      const allowance = await erc20Contract.methods.allowance(account.address, contract).call({ from: account.address })
+      const ethAllowance = web3.utils.fromWei(allowance, "ether")
+      if(ethAllowance > 0) {
+        erc20Contract.methods.approve(contract, web3.utils.toWei('0', "ether")).send({ from: account.address, gasPrice: web3.utils.toWei(await this._getGasPrice(), 'gwei') })
+          .on('transactionHash', function(hash){
+            //success...
+          })
+          .on('error', function(error) {
+            if (!error.toString().includes("-32601")) {
+              if(error.message) {
+                return callback(error.message)
               }
-            })
-        }
+              callback(error)
+            }
+          })
       }
+      
 
       if(last) {
         await erc20Contract.methods.approve(contract, web3.utils.toWei(amount, "ether")).send({ from: account.address, gasPrice: web3.utils.toWei(await this._getGasPrice(), 'gwei') })
