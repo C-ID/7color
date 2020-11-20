@@ -24,7 +24,8 @@ import {
   BALANCES_RETURNED,
   GET_TOEKEN_DASHBOARD_SNAPSHOT,
   TOEKEN_DASHBOARD_SNAPSHOT_RETURNED,
-
+  SWAP,
+  SWAP_RETURNED
 } from '../../constants/constants';
 
 import Store from "../../stores/store";
@@ -333,9 +334,9 @@ class ExchangeDashboard extends Component {
     const { account } = this.state
     this.setState({ loading: true })
     const asset = {
-      erc20address: "0xaD6D458402F60fD3Bd25163575031ACDce07538D",
+      erc20address: "0x20fE562d797A42Dcb3399062AE9546cd06f63280",
       decimals: 18,
-      symbol: "DAI"
+      symbol: "LINK"
     }
     const amount = "1000000000000000000"
     
@@ -350,45 +351,8 @@ class ExchangeDashboard extends Component {
   swap = () => {
     const { account } = this.state
     this.setState({ loading: true })
-    const swapPairs = [{
-      from: {
-        erc20address: "0xaD6D458402F60fD3Bd25163575031ACDce07538D",
-        decimals: 18,
-        symbol: "DAI",
-        amountIn: "1000000000000000000"
-      },
-      to: {
-        erc20address: "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
-        decimals: 18,
-        symbol: "ETH"
-      } 
-    },{
-      from: {
-        erc20address: "0xc778417E063141139Fce010982780140Aa0cD5Ab",
-        decimals: 18,
-        symbol: "WETH",
-        amountIn: "100000000000000000"
-      },
-      to: {
-        erc20address: "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
-        decimals: 18,
-        symbol: "ETH"
-      } 
-    },{
-      from: {
-        erc20address: "0x20fE562d797A42Dcb3399062AE9546cd06f63280",
-        decimals: 18,
-        symbol: "LINK",
-        amountIn: "1000000000000000000"
-      },
-      to: {
-        erc20address: "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
-        decimals: 18,
-        symbol: "ETH"
-      } 
-    }
-  ]
-  dispatcher.dispatch({ type: ZAP, content: { amount: sendAmount, sendAsset: sendAsset, receiveAsset: receiveAsset } })
+    const swapPairs = {}
+    dispatcher.dispatch({ type: SWAP, content: {} })
   };
 
 

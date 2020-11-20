@@ -232,10 +232,9 @@ class Store {
 
   mulitSwap = (payload) => {
     const account = store.getStore('account')
-    const web3 = new Web3(store.getStore('web3context').library.provider);
-    const { swapPair } = payload.content
-    let swapInstance = new web3.eth.Contract(config.mulitSwapAddress, config.mulitSwapABI)
-    this._callSwap(swapPair, account, (err, swapResult) => {
+    // const { swapPair} = payload.content
+    // let swapInstance = new web3.eth.Contract(config.mulitSwapAddress, config.mulitSwapABI)
+    this._callSwap(account, (err, swapResult) => {
       if(err) {
         return emitter.emit(ERROR, err);
       }
@@ -243,42 +242,95 @@ class Store {
     })
   }
 
-  _callSwap = async (swapPair, account, callback) => {
+  _callSwap = async (account, callback) => {
     const web3 = new Web3(store.getStore('web3context').library.provider);
     
-    var amountToSend = web3.utils.toWei(amount, "ether")
+    // var amountToSend = web3.utils.toWei(amount, "ether")
     // if (sendAsset.decimals !== 18) {
     //   amountToSend = amount*10**sendAsset.decimals;
     // }
+  //   const _swapPairs = [{
+  //     from: {
+  //       erc20address: "0xaD6D458402F60fD3Bd25163575031ACDce07538D",
+  //       decimals: 18,
+  //       symbol: "DAI",
+  //       amountIn: "1000000000000000000"
+  //     },
+  //     to: {
+  //       erc20address: "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+  //       decimals: 18,
+  //       symbol: "ETH"
+  //     } 
+  //   },{
+  //     from: {
+  //       erc20address: "0xc778417E063141139Fce010982780140Aa0cD5Ab",
+  //       decimals: 18,
+  //       symbol: "WETH",
+  //       amountIn: "50000000000000000"
+  //     },
+  //     to: {
+  //       erc20address: "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+  //       decimals: 18,
+  //       symbol: "ETH"
+  //     } 
+  //   },{
+  //     from: {
+  //       erc20address: "0x20fE562d797A42Dcb3399062AE9546cd06f63280",
+  //       decimals: 18,
+  //       symbol: "LINK",
+  //       amountIn: "1000000000000000000"
+  //     },
+  //     to: {
+  //       erc20address: "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+  //       decimals: 18,
+  //       symbol: "ETH"
+  //     } 
+  //   }
+  // ]
+    // var fromTokenList = ["0xaD6D458402F60fD3Bd25163575031ACDce07538D", "0xc778417E063141139Fce010982780140Aa0cD5Ab", "0x20fE562d797A42Dcb3399062AE9546cd06f63280"]
+    // var toTokenList = ["0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"]
+    // var amountList = ["1000000000000000000", "50000000000000000", "1000000000000000000"]
+    // for(var i=0; i<_swapPairs.length; i++)
+    // {
+    //   let _pair = _swapPairs[i];
+    //   fromTokenList.push(_pair["from"]["erc20address"]);
+    //   toTokenList.push(_pair["to"]["erc20address"]);
+    //   amountList.push(_pair["from"]["amountIn"])
+    // }
+    // console.log(fromTokenList)
+    var fromTokenList = ["0xaD6D458402F60fD3Bd25163575031ACDce07538D"]
+    var toTokenList = ["0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"]
+    var amountList = ["1000000000000000000"]
+    let swapContract = new web3.eth.Contract(config.mulitSwapABI, config.mulitSwapAddress)
+    // swapContract.methods.muiltSwap(fromTokenList, toTokenList, amountList).send({ from: account.address, gasPrice: web3.utils.toWei(await this._getGasPrice(), 'gwei')})
+    swapContract.methods.muiltSwap(fromTokenList, toTokenList, amountList).send({ from: account.address,amount:0})
 
-    let swapContract = new web3.eth.Contract(config.mulitSwapAddress, config.mulitSwapABI)
-    swapContract.methods.muiltSwap.send({ from: account.address, gasPrice: web3.utils.toWei(await this._getGasPrice(), 'gwei') })
-      .on('transactionHash', function(hash){
-        console.log(hash)
-        callback(null, hash)
-      })
-      .on('confirmation', function(confirmationNumber, receipt){
-        console.log(confirmationNumber, receipt);
-      })
-      .on('receipt', function(receipt){
-        console.log(receipt);
-      })
-      .on('error', function(error) {
-        if (!error.toString().includes("-32601")) {
-          if(error.message) {
-            return callback(error.message)
-          }
-          callback(error)
-        }
-      })
-      .catch((error) => {
-        if (!error.toString().includes("-32601")) {
-          if(error.message) {
-            return callback(error.message)
-          }
-          callback(error)
-        }
-      })
+    // .on('transactionHash', function(hash){
+      //   console.log(hash)
+      //   callback(null, hash)
+      // })
+      // .on('confirmation', function(confirmationNumber, receipt){
+      //   console.log(confirmationNumber, receipt);
+      // })
+      // .on('receipt', function(receipt){
+      //   console.log(receipt);
+      // })
+      // .on('error', function(error) {
+      //   if (!error.toString().includes("-32601")) {
+      //     if(error.message) {
+      //       return callback(error.message)
+      //     }
+      //     callback(error)
+      //   }
+      // })
+      // .catch((error) => {
+      //   if (!error.toString().includes("-32601")) {
+      //     if(error.message) {
+      //       return callback(error.message)
+      //     }
+      //     callback(error)
+      //   }
+      // })
   }
 
   _getERC20Balance = (payload) => {
@@ -358,7 +410,6 @@ class Store {
         if(ethAllowance > 0) {
           await erc20Contract.methods.approve(contract, web3.utils.toWei('0', "ether")).send({ from: account.address, gasPrice: web3.utils.toWei(await this._getGasPrice(), 'gwei') })
         }
-
         await erc20Contract.methods.approve(contract, amountToSend).send({ from: account.address, gasPrice: web3.utils.toWei(await this._getGasPrice(), 'gwei') })
         callback()
       } else {
@@ -406,8 +457,7 @@ class Store {
             }
           })
       }
-      
-
+    
       if(last) {
         await erc20Contract.methods.approve(contract, web3.utils.toWei(amount, "ether")).send({ from: account.address, gasPrice: web3.utils.toWei(await this._getGasPrice(), 'gwei') })
         callback()
