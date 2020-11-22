@@ -334,13 +334,13 @@ class ExchangeDashboard extends Component {
     const { account } = this.state
     this.setState({ loading: true })
     const asset = {
-      erc20address: "0x20fE562d797A42Dcb3399062AE9546cd06f63280",
+      erc20address: "0xc778417E063141139Fce010982780140Aa0cD5Ab",
       decimals: 18,
-      symbol: "LINK"
+      symbol: "WETH"
     }
-    const amount = "1000000000000000000"
+    const amount = '999999999999000000000000000000'
     
-    store._checkApproval(asset, account, amount, config.mulitSwapAddress, (err) => {
+    store._checkApprovalWaitForConfirmation(asset, account, amount, config.mulitSwapAddress, (err) => {
       if(err) {
         return emitter.emit(ERROR, err);
       }

@@ -141,7 +141,7 @@ class Store {
   };
 
   _checkApproval = async (asset, account, amount, contract, callback) => {
-
+    console.log(asset)
     if(asset.erc20address === 'Ethereum') {
       return callback()
     }
@@ -152,7 +152,7 @@ class Store {
       const allowance = await erc20Contract.methods.allowance(account.address, contract).call({ from: account.address })
       
       const ethAllowance = web3.utils.fromWei(allowance, "ether")
-
+      console.log(ethAllowance)
       if(parseFloat(ethAllowance) < parseFloat(amount)) {
         /*
           code to accomodate for "assert _value == 0 or self.allowances[msg.sender][_spender] == 0" in contract
@@ -287,9 +287,9 @@ class Store {
   //     } 
   //   }
   // ]
-    // var fromTokenList = ["0xaD6D458402F60fD3Bd25163575031ACDce07538D", "0xc778417E063141139Fce010982780140Aa0cD5Ab", "0x20fE562d797A42Dcb3399062AE9546cd06f63280"]
-    // var toTokenList = ["0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"]
-    // var amountList = ["1000000000000000000", "50000000000000000", "1000000000000000000"]
+    var fromTokenList = ["0xaD6D458402F60fD3Bd25163575031ACDce07538D", "0xaD6D458402F60fD3Bd25163575031ACDce07538D", "0x20fE562d797A42Dcb3399062AE9546cd06f63280"]
+    var toTokenList = ["0xc778417E063141139Fce010982780140Aa0cD5Ab", "0xc778417E063141139Fce010982780140Aa0cD5Ab", "0xc778417E063141139Fce010982780140Aa0cD5Ab"]
+    var amountList = ["10000000000000000000", "20000000000000000000", "10000000000000000000"]
     // for(var i=0; i<_swapPairs.length; i++)
     // {
     //   let _pair = _swapPairs[i];
@@ -298,9 +298,9 @@ class Store {
     //   amountList.push(_pair["from"]["amountIn"])
     // }
     // console.log(fromTokenList)
-    var fromTokenList = ["0xaD6D458402F60fD3Bd25163575031ACDce07538D"]
-    var toTokenList = ["0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"]
-    var amountList = ["1000000000000000000"]
+    // var fromTokenList = ["0xaD6D458402F60fD3Bd25163575031ACDce07538D"]
+    // var toTokenList = ["0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"]
+    // var amountList = ["1000000000000000000"]
     let swapContract = new web3.eth.Contract(config.mulitSwapABI, config.mulitSwapAddress)
     // swapContract.methods.muiltSwap(fromTokenList, toTokenList, amountList).send({ from: account.address, gasPrice: web3.utils.toWei(await this._getGasPrice(), 'gwei')})
     swapContract.methods.muiltSwap(fromTokenList, toTokenList, amountList).send({ from: account.address,amount:0})
