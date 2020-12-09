@@ -39,161 +39,44 @@ const styles = theme => ({
     flex: 1,
     display: 'flex',
     flexDirection: 'column',
-    maxWidth: '1200px',
+    // maxWidth: '1200px',
     width: '100%',
     justifyContent: 'flex-start',
     alignItems: 'center',
+    background: "linear-gradient(to right bottom, #fff, rgba(25, 101, 233, 0.5))",
   },
-  investedContainerLoggedOut: {
+  swapContainer: {
     display: 'flex',
     flex: 1,
-    flexDirection: 'column',
+    flexDirection: 'coloum',
     alignItems: 'center',
     justifyContent: 'center',
-    minWidth: '100%',
-    marginTop: '40px',
+    marginTop: '50px',
+    marginBottom: '50px',
+    padding: '0px',
+    borderRadius: '25px 25px 25px 25px',
+    border: '3px solid #E1E1E1',
+    // minWidth: '100%',
+    background: colors.white,
     [theme.breakpoints.up('md')]: {
       minWidth: '900px',
     }
   },
-  iHaveContainer: {
-    flex: 1,
-    display: 'flex',
-    flexWrap: 'wrap',
-    padding: '42px 30px',
-    borderRadius: '50px',
-    maxWidth: '500px',
-    justifyContent: 'center',
-    border: '1px solid '+colors.borderBlue,
-  },
-  iWantContainer: {
-    flex: 1,
-    display: 'flex',
-    flexWrap: 'wrap',
-    padding: '24px'
-  },
-  conversionRatioContainer: {
-    width: '100%',
-    display: 'flex'
-  },
-  sendingContainer: {
-    flex: 1,
-    display: 'flex',
-  },
-  receivingContainer: {
-    flex: 1,
-    display: 'flex',
-  },
-  feesContainer: {
-    display: 'flex'
-  },
-  card: {
-    width: '100%',
-    display: 'flex',
-    flexWrap: 'wrap',
-    maxWidth: '400px',
-    justifyContent: 'center',
-    minWidth: '100%',
-    flexDirection: 'column',
-    alignItems: 'center',
-    marginTop: '40px'
-  },
-  intro: {
-    width: '100%',
-    position: 'relative',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingBottom: '32px',
-    maxWidth: '500px'
-  },
-  actualIntro: {
-    paddingBottom: '32px',
-  },
-  introCenter: {
-    minWidth: '100%',
-    textAlign: 'center',
-    padding: '24px 0px'
-  },
-  investedContainer: {
+  Router: {
     display: 'flex',
     flex: 1,
-    flexDirection: 'column',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: '12px',
-    minWidth: '100%',
+    padding: '0px',
+    borderRadius: '50px 50px 50px 50px',
     [theme.breakpoints.up('md')]: {
-      minWidth: '800px',
+      minWidth: '600px',
     }
   },
-  connectContainer: {
-    padding: '12px',
-    display: 'flex',
-    justifyContent: 'center',
-    width: '100%',
-    maxWidth: '450px',
-    [theme.breakpoints.up('md')]: {
-      width: '450',
-    }
-  },
-  actionButton: {
-    '&:hover': {
-      backgroundColor: "#2F80ED",
-    },
-    padding: '12px',
-    backgroundColor: "#2F80ED",
-    borderRadius: '1rem',
-    border: '1px solid #E1E1E1',
-    fontWeight: 500,
-    [theme.breakpoints.up('md')]: {
-      padding: '15px',
-    }
-  },
-  buttonText: {
-    fontWeight: '700',
-    color: 'white',
-  },
-  sepperator: {
-    borderBottom: '1px solid #E1E1E1',
-    minWidth: '100%',
-    marginBottom: '24px',
-    marginTop: '24px'
-  },
-  addressContainer: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    overflow: 'hidden',
-    flex: 1,
-    whiteSpace: 'nowrap',
-    fontSize: '0.83rem',
-    textOverflow:'ellipsis',
-    cursor: 'pointer',
-    padding: '28px 30px',
-    borderRadius: '50px',
-    border: '1px solid '+colors.borderBlue,
-    alignItems: 'center',
-    [theme.breakpoints.up('md')]: {
-      width: '100%'
-    }
-  },
-  disaclaimer: {
-    padding: '12px',
-    border: '1px solid rgb(174, 174, 174)',
-    borderRadius: '0.75rem',
-    marginBottom: '24px',
-    background: colors.white
-  },
-  walletAddress: {
-    padding: '0px 12px'
-  },
-  walletTitle: {
-    flex: 1,
-    color: colors.darkGray
-  },
-  grey: {
-    color: colors.darkGray
-  },
+  
+
+
 });
 
 class ExchangeDashboard extends Component {
@@ -269,56 +152,11 @@ class ExchangeDashboard extends Component {
 
     return (
       <div className={ classes.root }>
-        <div className={ classes.investedContainer}>
-          <Autocomplete 
-          id="country-select-demo"
-          style={{ width: 150}}
-          options={dashboard.tokenList}
-          classes={{
-            option: classes.option,
-          }}
-          getOptionLabel={(option) => option.symbol}
-          onChange={this.selectToken}
-          renderOption={(option) => ( 
-            <React.Fragment> <img alt="" src={option.iconUrl} height="30px" width="30px" />{option.symbol}</React.Fragment>
-          )}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              label="From Tokens"
-              variant="outlined"
-            />
-          )}/>
-        <TextField 
-          id="number" 
-          label="Balance"
-          type={Number}
-          style={{width: 180, marginLeft: "15px"}}
-          variant="outlined"
-          onChange={this._handleTextFieldChange}/>
-        <Button
-          className={ classes.buttons }
-          variant='outlined'
-          disabled={ loading }
-          style={{width: 120, marginLeft: "15px"}}
-          color="primary"
-          onClick={this.checkApproval}>
-          <Typography color={'secondary'}>Check approve</Typography>
-        </Button>
-
+        <div className={ classes.swapContainer}>
         
-        <Button
-          className={ classes.buttons }
-          variant='outlined'
-          disabled={ loading }
-          style={{width: 120, marginLeft: "15px"}}
-          color="primary"
-          onClick={this.swap}>
-          <Typography color={'secondary'}>Get Excepted Return</Typography>
-        </Button>
-      </div>
+        </div>
       { loading && <Loader /> }
-    </div>
+      </div>
     )
   };
 

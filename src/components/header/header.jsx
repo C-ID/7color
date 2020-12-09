@@ -28,11 +28,13 @@ const styles = theme => ({
     }
   },
   headerV2: {
-    background: colors.white,
-    border: '5px solid '+colors.gray,
+    background: "linear-gradient(to top, #fff, rgba(25, 101, 233, 0.5))",
+    border: '3px solid '+colors.lightBlue,
     borderTop: 'none',
+    borderLeft: 'none',
+    borderRight: 'none',
     width: '100%',
-    borderRadius: '50px 50px 50px 50px',
+    // borderRadius: '50px 50px 50px 50px',
     display: 'flex',
     padding: '24px 32px',
     alignItems: 'center',
