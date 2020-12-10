@@ -39,7 +39,6 @@ const styles = theme => ({
     flex: 1,
     display: 'flex',
     flexDirection: 'column',
-    // maxWidth: '1200px',
     width: '100%',
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -51,17 +50,32 @@ const styles = theme => ({
     flexDirection: 'coloum',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: '50px',
-    marginBottom: '50px',
+    margin: '50px 25px 50px 25px',
+    // marginBottom: '50px',
     padding: '0px',
     borderRadius: '25px 25px 25px 25px',
     border: '3px solid #E1E1E1',
-    // minWidth: '100%',
     background: colors.white,
     [theme.breakpoints.up('md')]: {
       minWidth: '900px',
     }
   },
+
+  inputPanel:{
+    display: 'flex',
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '100px 50px 100px 50px',
+    border: '3px solid #E1E1E1',
+    borderRadius: '50px 50px 50px 50px',
+    // [theme.breakpoints.up('sm')]: {
+    //   // minWidth: '400px',
+    //   minHeight: '50px'
+    // }
+  },
+
   Router: {
     display: 'flex',
     flex: 1,
@@ -153,7 +167,9 @@ class ExchangeDashboard extends Component {
     return (
       <div className={ classes.root }>
         <div className={ classes.swapContainer}>
-        
+          <div className={ classes.swapContainer}>
+            abc
+          </div>
         </div>
       { loading && <Loader /> }
       </div>
