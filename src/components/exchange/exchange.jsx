@@ -167,7 +167,7 @@ class ExchangeDashboard extends Component {
     return (
       <div className={ classes.root }>
         <div className={ classes.swapContainer}>
-          <div className={ classes.swapContainer}>
+          <div className={ classes.inputPanel}>
             abc
           </div>
         </div>
