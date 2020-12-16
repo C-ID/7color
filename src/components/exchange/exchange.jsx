@@ -83,6 +83,7 @@ const styles = theme => ({
     alignItems: 'center',
     justifyContent: 'center',
     padding: '0px',
+    border: '3px solid #E1E1E1',
     borderRadius: '50px 50px 50px 50px',
     [theme.breakpoints.up('md')]: {
       minWidth: '600px',
@@ -162,19 +163,35 @@ class ExchangeDashboard extends Component {
       loading,
       dashboard,
       currency
-    } = this.state
+      } = this.state
 
     return (
       <div className={ classes.root }>
         <div className={ classes.swapContainer}>
           <div className={ classes.inputPanel}>
-            abc
+            <routerRender>
+              abc
+            </routerRender>
           </div>
         </div>
       { loading && <Loader /> }
       </div>
     )
   };
+
+  routerRender(){
+    const { classes } = this.props;
+    // const {
+    //   loading,
+    //   dashboard,
+    //   currency
+    // } = this.state
+    return (
+      <div className={ classes.Router}>
+        
+      </div>
+    )
+  }
 
   balanceClicked = () => {
     const { currency } = this.state
