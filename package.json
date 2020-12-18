@@ -36,6 +36,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
     "request-promise": "^4.2.6",
+    "styled-components": "^5.2.1",
     "typeface-roboto": "0.0.54",
     "web3": "^1.2.11"
   },

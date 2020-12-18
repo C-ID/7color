@@ -60,7 +60,6 @@ const styles = theme => ({
       minWidth: '900px',
     }
   },
-
   inputPanel:{
     display: 'flex',
     flex: 1,
@@ -69,16 +68,12 @@ const styles = theme => ({
     justifyContent: 'center',
     padding: '100px 50px 100px 50px',
     border: '3px solid #E1E1E1',
-    borderRadius: '50px 50px 50px 50px',
-    // [theme.breakpoints.up('sm')]: {
-    //   // minWidth: '400px',
-    //   minHeight: '50px'
-    // }
+    borderRadius: '50px 50px 50px 50px'
   },
-
   Router: {
     display: 'flex',
     flex: 1,
+    position: 'relative',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -89,9 +84,15 @@ const styles = theme => ({
       minWidth: '600px',
     }
   },
-  
-
-
+  Container: {
+    border: '1px solid #E1E1E1',
+    background: colors.grey
+  },
+  LabelRow: {
+    alignItems: 'center',
+    background: 'none',
+    fontSize: '0.75em',
+  }
 });
 
 class ExchangeDashboard extends Component {
@@ -187,11 +188,15 @@ class ExchangeDashboard extends Component {
     //   currency
     // } = this.state
     return (
-      <div className={ classes.Router}>
-        
+      <div className={classes.Router}>
+        <div className={ classes.Container}>
+          <div className={ classes.LabelRow}>
+            abc
+          </div>
+        </div>
       </div>
     )
-  }
+  };
 
   balanceClicked = () => {
     const { currency } = this.state
