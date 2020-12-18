@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import { withStyles } from '@material-ui/core/styles';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import * as moment from 'moment';
+import styled, { ThemeContext } from 'styled-components';
 import config from "../../config/config";
 import {
   Typography,
@@ -33,6 +34,31 @@ import Store from "../../stores/store";
 const emitter = Store.emitter
 const dispatcher = Store.dispatcher
 const store = Store.store
+
+const StyledBalanceMax = styled.button`
+  height: 28px;
+  background-color: ${({ colors }) => colors.grey};
+  border: 1px solid ${({ colors }) => colors.black};
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+
+  font-weight: 500;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  color: ${({ theme }) => theme.primaryText1};
+  :hover {
+    border: 1px solid ${({ theme }) => theme.primary1};
+  }
+  :focus {
+    border: 1px solid ${({ theme }) => theme.primary1};
+    outline: none;
+  }
+
+  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+    margin-right: 0.5rem;
+  `};
+`
+
 
 const styles = theme => ({
   root: {
@@ -171,7 +197,7 @@ class ExchangeDashboard extends Component {
         <div className={ classes.swapContainer}>
           <div className={ classes.inputPanel}>
             <routerRender>
-              abc
+            <StyledBalanceMax onClick={this.checkApproval}>MAX</StyledBalanceMax>
             </routerRender>
           </div>
         </div>
