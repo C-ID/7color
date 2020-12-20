@@ -95,6 +95,9 @@ const styles = theme => ({
     alignItems: 'center',
     background: 'none',
     fontSize: '0.75em',
+    &:hover {
+      background: ${({ selected, theme }) => (selected ? theme.bg2 : darken(0.05, theme.primary1))};
+    }
   }
 });
 
@@ -285,11 +288,8 @@ class ExchangeDashboard extends Component {
     //   dashboard,
     //   currency
     // } = this.state
-    return (
-      <div className={ classes.inputPanel}>
-        <StyledBalanceMax>MAX</StyledBalanceMax>
-      </div>
-    )
+    var hideInput = false;
+    // return ()
   };
 
 
