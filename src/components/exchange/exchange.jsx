@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { withStyles } from '@material-ui/core/styles';
+import styled, { ThemeContext } from 'styled-components';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import * as moment from 'moment';
 import styled, { ThemeContext } from 'styled-components';
+import { darken } from 'polished';
+import { ReactComponent as DropDown } from '../../assets/dropdown.svg';
+
 import config from "../../config/config";
 import {
   Typography,
@@ -12,7 +16,7 @@ import {
   MenuItem,
   Button
 } from '@material-ui/core';
-import { colors } from '../../theme/theme';
+import { colors } from '../../theme';
 
 import Loader from '../loader/loader';
 import InfoIcon from '@material-ui/icons/Info';
@@ -118,8 +122,110 @@ const styles = theme => ({
     alignItems: 'center',
     background: 'none',
     fontSize: '0.75em',
+    :hover {
+      background: ${({ selected, theme }) => (selected ? theme.bg2 : darken(0.05, theme.primary1))};
+    }
   }
 });
+
+const InputRow = styled.div`
+
+  align-items: center;
+  padding: ${({ selected }) => (selected ? '0.75rem 0.5rem 0.75rem 1rem' : '0.75rem 0.75rem 0.75rem 1rem')};
+  `
+
+const CurrencySelect = styled.button`
+  align-items: center;
+  height: 2.2rem;
+  font-size: 20px;
+  font-weight: 500;
+  background-color: ${({ selected, theme }) => (selected ? theme.bg1 : theme.primary1)};
+  color: ${({ selected, theme }) => (selected ? theme.text1 : theme.white)};
+  border-radius: 12px;
+  box-shadow: ${({ selected }) => (selected ? 'none' : '0px 6px 10px rgba(0, 0, 0, 0.075)')};
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+  border: none;
+  padding: 0 0.5rem;
+
+  :focus,
+  :hover {
+    background-color: ${({ selected, theme }) => (selected ? theme.bg2 : darken(0.05, theme.primary1))};
+  }
+`
+
+const LabelRow = styled.div`
+  ${({ theme }) => theme.flexRowNoWrap}
+  align-items: center;
+  color: ${({ theme }) => theme.text1};
+  font-size: 0.75rem;
+  line-height: 1rem;
+  padding: 0.75rem 1rem 0 1rem;
+  span:hover {
+    cursor: pointer;
+    color: ${({ theme }) => darken(0.2, theme.text2)};
+  }
+`
+
+const Aligner = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+const StyledDropDown = styled(DropDown)`
+  margin: 0 0.25rem 0 0.5rem;
+  height: 35%;
+
+  path {
+    stroke: ${({ selected, theme }) => (selected ? theme.text1 : theme.white)};
+    stroke-width: 1.5px;
+  }
+`
+
+const InputPanel = styled.div`
+  ${({ theme }) => theme.flexColumnNoWrap}
+  position: relative;
+  border-radius: ${({ hideInput }) => (hideInput ? '8px' : '20px')};
+  background-color: ${({ theme }) => theme.bg2};
+  z-index: 1;
+`
+
+const Container = styled.div`
+  border-radius: ${({ hideInput }) => (hideInput ? '8px' : '20px')};
+  border: 1px solid ${({ theme }) => theme.bg2};
+  background-color: ${({ theme }) => theme.bg1};
+`
+
+const StyledTokenName = styled.span`
+  ${({ active }) => (active ? '  margin: 0 0.25rem 0 0.75rem;' : '  margin: 0 0.25rem 0 0.25rem;')}
+  font-size:  ${({ active }) => (active ? '20px' : '16px')};
+
+`
+
+const StyledBalanceMax = styled.button`
+  height: 28px;
+  background-color: ${({ theme }) => theme.primary5};
+  border: 1px solid ${({ theme }) => theme.primary5};
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+
+  font-weight: 500;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  color: ${({ theme }) => theme.primaryText1};
+  :hover {
+    border: 1px solid ${({ theme }) => theme.primary1};
+  }
+  :focus {
+    border: 1px solid ${({ theme }) => theme.primary1};
+    outline: none;
+  }
+
+
+`
+
 
 class ExchangeDashboard extends Component {
 
@@ -195,11 +301,7 @@ class ExchangeDashboard extends Component {
     return (
       <div className={ classes.root }>
         <div className={ classes.swapContainer}>
-          <div className={ classes.inputPanel}>
-            <routerRender>
-            <StyledBalanceMax onClick={this.checkApproval}>MAX</StyledBalanceMax>
-            </routerRender>
-          </div>
+          {this.routerRender()}
         </div>
       { loading && <Loader /> }
       </div>
@@ -213,16 +315,10 @@ class ExchangeDashboard extends Component {
     //   dashboard,
     //   currency
     // } = this.state
-    return (
-      <div className={classes.Router}>
-        <div className={ classes.Container}>
-          <div className={ classes.LabelRow}>
-            abc
-          </div>
-        </div>
-      </div>
-    )
+    var hideInput = false;
+    // return ()
   };
+
 
   balanceClicked = () => {
     const { currency } = this.state

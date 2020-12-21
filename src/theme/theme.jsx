@@ -1,5 +1,10 @@
 import createBreakpoints from '@material-ui/core/styles/createBreakpoints'
-
+import styled, {
+  ThemeProvider as StyledComponentsThemeProvider,
+  createGlobalStyle,
+  css,
+  DefaultTheme
+} from 'styled-components';
 import WorkSansTTF from '../assets/fonts/WorkSans-VariableFont_wght.ttf';
 
 const WorkSans = {
@@ -50,6 +55,35 @@ const breakpoints = createBreakpoints({
     xl: 1800
   }
 })
+
+export function theme(darkMode: boolean): DefaultTheme {
+  return {
+    ...colors(darkMode),
+
+    grids: {
+      sm: 8,
+      md: 12,
+      lg: 24
+    },
+
+    //shadows
+    shadow1: darkMode ? '#000' : '#2F80ED',
+
+    // media queries
+    // mediaWidth: mediaWidthTemplates,
+
+    // css snippets
+    flexColumnNoWrap: css`
+      display: flex;
+      flex-flow: column nowrap;
+    `,
+    flexRowNoWrap: css`
+      display: flex;
+      flex-flow: row nowrap;
+    `
+  }
+}
+
 
 const SevenColorsTheme =  {
   typography: {
