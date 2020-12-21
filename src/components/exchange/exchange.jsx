@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/core/styles';
 import styled, { ThemeContext } from 'styled-components';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import * as moment from 'moment';
-import styled, { ThemeContext } from 'styled-components';
 import { darken } from 'polished';
 import { ReactComponent as DropDown } from '../../assets/dropdown.svg';
 
@@ -38,31 +37,6 @@ import Store from "../../stores/store";
 const emitter = Store.emitter
 const dispatcher = Store.dispatcher
 const store = Store.store
-
-const StyledBalanceMax = styled.button`
-  height: 28px;
-  background-color: ${({ colors }) => colors.grey};
-  border: 1px solid ${({ colors }) => colors.black};
-  border-radius: 0.5rem;
-  font-size: 0.875rem;
-
-  font-weight: 500;
-  cursor: pointer;
-  margin-right: 0.5rem;
-  color: ${({ theme }) => theme.primaryText1};
-  :hover {
-    border: 1px solid ${({ theme }) => theme.primary1};
-  }
-  :focus {
-    border: 1px solid ${({ theme }) => theme.primary1};
-    outline: none;
-  }
-
-  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
-    margin-right: 0.5rem;
-  `};
-`
-
 
 const styles = theme => ({
   root: {
@@ -122,9 +96,6 @@ const styles = theme => ({
     alignItems: 'center',
     background: 'none',
     fontSize: '0.75em',
-    :hover {
-      background: ${({ selected, theme }) => (selected ? theme.bg2 : darken(0.05, theme.primary1))};
-    }
   }
 });
 
@@ -201,7 +172,6 @@ const Container = styled.div`
 const StyledTokenName = styled.span`
   ${({ active }) => (active ? '  margin: 0 0.25rem 0 0.75rem;' : '  margin: 0 0.25rem 0 0.25rem;')}
   font-size:  ${({ active }) => (active ? '20px' : '16px')};
-
 `
 
 const StyledBalanceMax = styled.button`
@@ -301,7 +271,7 @@ class ExchangeDashboard extends Component {
     return (
       <div className={ classes.root }>
         <div className={ classes.swapContainer}>
-          {this.routerRender()}
+          {this.routerRender}
         </div>
       { loading && <Loader /> }
       </div>
