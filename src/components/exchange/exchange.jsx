@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState, useContext, useCallback } from "react";
 import { withRouter } from "react-router-dom";
 import { withStyles } from '@material-ui/core/styles';
 import styled, { ThemeContext } from 'styled-components';
@@ -95,9 +95,6 @@ const styles = theme => ({
     alignItems: 'center',
     background: 'none',
     fontSize: '0.75em',
-    &:hover {
-      background: ${({ selected, theme }) => (selected ? theme.bg2 : darken(0.05, theme.primary1))};
-    }
   }
 });
 
@@ -112,8 +109,6 @@ const CurrencySelect = styled.button`
   height: 2.2rem;
   font-size: 20px;
   font-weight: 500;
-  background-color: ${({ selected, theme }) => (selected ? theme.bg1 : theme.primary1)};
-  color: ${({ selected, theme }) => (selected ? theme.text1 : theme.white)};
   border-radius: 12px;
   box-shadow: ${({ selected }) => (selected ? 'none' : '0px 6px 10px rgba(0, 0, 0, 0.075)')};
   outline: none;
@@ -121,10 +116,9 @@ const CurrencySelect = styled.button`
   user-select: none;
   border: none;
   padding: 0 0.5rem;
-
   :focus,
   :hover {
-    background-color: ${({ selected, theme }) => (selected ? theme.bg2 : darken(0.05, theme.primary1))};
+    background-color: ${({ selected}) => (selected ? colors.blue : colors.lightBlue)};
   }
 `
 
@@ -152,7 +146,7 @@ const StyledDropDown = styled(DropDown)`
   height: 35%;
 
   path {
-    stroke: ${({ selected, theme }) => (selected ? theme.text1 : theme.white)};
+    stroke: ${({ selected}) => (selected ? colors.grey : colors.white)};
     stroke-width: 1.5px;
   }
 `
@@ -161,14 +155,14 @@ const InputPanel = styled.div`
   ${({ theme }) => theme.flexColumnNoWrap}
   position: relative;
   border-radius: ${({ hideInput }) => (hideInput ? '8px' : '20px')};
-  background-color: ${({ theme }) => theme.bg2};
+  background-color: ${colors.grey};
   z-index: 1;
 `
 
 const Container = styled.div`
   border-radius: ${({ hideInput }) => (hideInput ? '8px' : '20px')};
-  border: 1px solid ${({ theme }) => theme.bg2};
-  background-color: ${({ theme }) => theme.bg1};
+  border: 1px solid ${colors.grey};
+  background-color: ${colors.grey};
 `
 
 const StyledTokenName = styled.span`
@@ -179,24 +173,21 @@ const StyledTokenName = styled.span`
 
 const StyledBalanceMax = styled.button`
   height: 28px;
-  background-color: ${({ theme }) => theme.primary5};
-  border: 1px solid ${({ theme }) => theme.primary5};
+  background-color: ${colors.blue};
+  border: 1px solid;
   border-radius: 0.5rem;
   font-size: 0.875rem;
-
   font-weight: 500;
   cursor: pointer;
-  margin-right: 0.5rem;
-  color: ${({ theme }) => theme.primaryText1};
+  margin-top: 0.5rem;
+  color: ${colors.white};
   :hover {
-    border: 1px solid ${({ theme }) => theme.primary1};
+    border: 1px solid ${colors.white};
   }
   :focus {
-    border: 1px solid ${({ theme }) => theme.primary1};
+    border: 1px solid ${colors.white};
     outline: none;
   }
-
-
 `
 
 
@@ -265,6 +256,7 @@ class ExchangeDashboard extends Component {
 
   render() {
     const { classes } = this.props;
+    
     const {
       loading,
       dashboard,
@@ -281,15 +273,26 @@ class ExchangeDashboard extends Component {
     )
   };
 
-  routerRender(){
+  routerRender = () => {
     const { classes } = this.props;
-    // const {
-    //   loading,
-    //   dashboard,
-    //   currency
-    // } = this.state
+    // const theme = useContext(ThemeContext)
+    const {
+      loading,
+      dashboard,
+      currency
+    } = this.state
     var hideInput = false;
-    // return ()
+    return (
+      <>
+        <CurrencySelect
+          selected={true}
+          className="open-currency-select-button"
+          onClick={this.checkApproval}>
+        abc
+        </CurrencySelect>
+        <StyledBalanceMax onClick={this.checkApproval}>MAX</StyledBalanceMax>
+      </>
+    )
   };
 
 
