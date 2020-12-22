@@ -179,7 +179,7 @@ const StyledBalanceMax = styled.button`
   font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
-  margin-top: 0.5rem;
+  margin-left: 0.5rem;
   color: ${colors.white};
   :hover {
     border: 1px solid ${colors.white};
@@ -188,6 +188,16 @@ const StyledBalanceMax = styled.button`
     border: 1px solid ${colors.white};
     outline: none;
   }
+`
+
+const AutoColumn = styled.div.attrs(props => ({
+  gap: 'sm' | 'md' | 'lg',
+  justify: 'stretch' | 'center' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'space-between'
+}))`
+  display: grid;
+  grid-auto-rows: auto;
+  grid-row-gap: ${({ gap }) => (gap === 'sm' && '8px') || (gap === 'md' && '12px') || (gap === 'lg' && '24px') || gap};
+  justify-items: ${({ justify }) => justify && justify};
 `
 
 
@@ -206,7 +216,8 @@ class ExchangeDashboard extends Component {
       sendAsset: null,
       receiveAsset: null,
       sendAmount: "",
-      bestPrice: 0
+      bestPrice: 0,
+      amount: 0
     }
 
     if(account && account.address) {
@@ -266,7 +277,7 @@ class ExchangeDashboard extends Component {
     return (
       <div className={ classes.root }>
         <div className={ classes.swapContainer}>
-          {this.routerRender}
+          {this.routerRender()}
         </div>
       { loading && <Loader /> }
       </div>
@@ -275,26 +286,73 @@ class ExchangeDashboard extends Component {
 
   routerRender = () => {
     const { classes } = this.props;
-    // const theme = useContext(ThemeContext)
     const {
       loading,
       dashboard,
       currency
     } = this.state
-    var hideInput = false;
     return (
-      <>
-        <CurrencySelect
-          selected={true}
-          className="open-currency-select-button"
-          onClick={this.checkApproval}>
-        abc
-        </CurrencySelect>
-        <StyledBalanceMax onClick={this.checkApproval}>MAX</StyledBalanceMax>
-      </>
+      <AutoColumn gap={'md'}>
+        {/* <CurrencyInputPanel
+          label={independentField === Field.OUTPUT && !showWrap && trade ? 'From (estimated)' : 'From'}
+          value={formattedAmounts[Field.INPUT]}
+          showMaxButton={!atMaxAmountInput}
+          currency={currencies[Field.INPUT]}
+          onUserInput={handleTypeInput}
+          onMax={handleMaxInput}
+          onCurrencySelect={handleInputSelect}
+          otherCurrency={currencies[Field.OUTPUT]}
+          id="swap-currency-input"
+        />
+        <AutoColumn justify="space-between">
+          <AutoRow justify={isExpertMode ? 'space-between' : 'center'} style={{ padding: '0 1rem' }}>
+            <ArrowWrapper clickable>
+              <ArrowDown
+                size="16"
+                onClick={() => {
+                  setApprovalSubmitted(false) // reset 2 step UI for approvals
+                  onSwitchTokens()
+                }}
+                color={currencies[Field.INPUT] && currencies[Field.OUTPUT] ? theme.primary1 : theme.text2}
+              />
+            </ArrowWrapper>
+            {recipient === null && !showWrap && isExpertMode ? (
+              <LinkStyledButton id="add-recipient-button" onClick={() => onChangeRecipient('')}>
+                + Add a send (optional)
+              </LinkStyledButton>
+            ) : null}
+          </AutoRow>
+        </AutoColumn>
+        <CurrencyInputPanel
+          value={formattedAmounts[Field.OUTPUT]}
+          onUserInput={handleTypeOutput}
+          label={independentField === Field.INPUT && !showWrap && trade ? 'To (estimated)' : 'To'}
+          showMaxButton={false}
+          currency={currencies[Field.OUTPUT]}
+          onCurrencySelect={handleOutputSelect}
+          otherCurrency={currencies[Field.INPUT]}
+          id="swap-currency-output"
+        /> */}
+        <>
+          <StyledBalanceMax onClick={() => {this.setPercent(25)}}>25%</StyledBalanceMax>
+          <StyledBalanceMax onClick={() => {this.setPercent(50)}}>50%</StyledBalanceMax>
+          <StyledBalanceMax onClick={() => {this.setPercent(75)}}>75%</StyledBalanceMax>
+          <StyledBalanceMax onClick={() => {this.setPercent(100)}}>MAX</StyledBalanceMax>
+        </>
+      </AutoColumn>
     )
   };
 
+  setPercent = (percent) => {
+    if(this.state.loading) {
+      return
+    }
+    const { balance } = this.state
+
+    let amount = balance*percent/100
+    amount = Math.floor(amount*10000)/10000;
+    this.setState({ amount: amount.toFixed(4) })
+  }
 
   balanceClicked = () => {
     const { currency } = this.state
@@ -328,10 +386,6 @@ class ExchangeDashboard extends Component {
     const swapPairs = {}
     dispatcher.dispatch({ type: SWAP, content: {} })
   };
-
-
-
-
 }
 
   export default withRouter(withStyles(styles)(ExchangeDashboard));
