@@ -22,6 +22,8 @@
     "@web3-react/trezor-connector": "^6.1.6",
     "@web3-react/walletconnect-connector": "^6.1.6",
     "@web3-react/walletlink-connector": "^6.1.6",
+    "@uniswap/sdk": "3.0.3",
+    "@uniswap/token-lists": "^1.0.0-beta.17",
     "async": "^3.2.0",
     "ethjs-ens": "^2.0.1",
     "flux": "^3.1.3",

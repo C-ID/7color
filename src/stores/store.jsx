@@ -1,5 +1,6 @@
 import config from "../config/config";
 import async from 'async';
+import { Tags, TokenInfo, TokenList } from '@uniswap/token-lists'
 import {
   ERROR,
   CONNECTION_CONNECTED,
@@ -550,6 +551,19 @@ class Store {
 
     const web3 = await this._getWeb3Provider();
 
+
+  }
+
+  listToTokenMap = async(TokenList) => {
+    const TokenAddressMap = {
+      [ChainId.KOVAN]: {},
+      [ChainId.RINKEBY]: {},
+      [ChainId.ROPSTEN]: {},
+      [ChainId.GÖRLI]: {},
+      [ChainId.MAINNET]: {}
+    }
+    
+    const listCache = typeof WeakMap !== 'undefined' ? new WeakMap() : null
 
   }
 
